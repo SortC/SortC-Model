@@ -23,6 +23,11 @@ Algorithm::~Algorithm(void)
 {
 }
 
+void Algorithm::sort()
+{
+	
+}
+
 Step Algorithm::getNextStep() {
 	if (numbOfactualStep < numbOfSteps)
 	{

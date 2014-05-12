@@ -1,4 +1,5 @@
 #include "Step.h"
+
 Step::Step(vector<int> *values, Operation operation, unsigned int number, string explantion){
 	this->values = *values;
 	this->op = operation;
@@ -13,6 +14,5 @@ Step::Step(vector<int> *values, Operation operation, unsigned int number){
 	this->explantion = "";
 }
 
-Step::~Step(void)
-{
+Step::~Step(void){
 }

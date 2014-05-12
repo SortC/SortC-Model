@@ -15,8 +15,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	values.push_back(4);
 	cout << values[2];
 
-	Step *s1 = new Step(v1, Operation::COMP ,1);
-	//BubbleSort *bs = new BubbleSort(values);
+	Step s1(v1, Operation::COMP, 1);
+	BubbleSort bs = (values);
 	getchar();
 	return 0;	
 }
