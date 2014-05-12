@@ -16,13 +16,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	//cout << values[2];
 
 	Step s1(v1, Operation::COMP, 1);
-	cout << "Unsortierte liste: " << endl;
-	for(int i = 0; i < values.size(); i++)
-	{
-		cout<<values[i]<<endl;
-	}
+	//cout << "Unsortierte liste: " << endl;
+	//for(int i = 0; i < values.size(); i++)
+	//{
+	//	cout<<values[i]<<endl;
+	//}
+
 	BubbleSort bs = (5);
-	vector<int> value2 = bs.getTupel();
+	vector<int> value2 = bs.get_startTupel();
 	bs.sort(value2);
 	cout << "Sortierte liste: " << endl;
 

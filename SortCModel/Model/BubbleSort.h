@@ -10,9 +10,5 @@ public:
 	void sort(vector<int> &liste);
 	Step getNextStep() override; 
 	Step getPrevStep()  override;
-	vector<int> getTupel();
-
-private:
-	vector<int> tupel;
 };
 

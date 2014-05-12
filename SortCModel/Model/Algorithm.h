@@ -43,10 +43,15 @@ public:
 	 */
 	virtual Step getPrevStep();
 
+	vector<int> get_startTupel();
+
+	vector<int> get_currentTupel();
+
 private:
 	vector<int> startTuple;
+	vector<int> currentTupel;
 	vector<Step> steps;
 	int numbOfSteps;
-	int numbOfactualStep;
+	int numbOfcurrentStep;
 };
 

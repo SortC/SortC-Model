@@ -1,22 +1,33 @@
 #include "Algorithm.h"
+#include <iostream>
 
 Algorithm::Algorithm(vector<int> startTuple) {
 	this->startTuple = startTuple;
-	this->numbOfactualStep = 0;
+	this->numbOfcurrentStep = 0;
 	this->numbOfSteps = 0;
 	this->steps;
 }
 
-Algorithm::Algorithm(int anzValues){
+Algorithm::Algorithm(int anzValues)
+{
 	for (int i = 0; i < anzValues; i++)
 	{
 		this->startTuple.push_back((rand() % 100) + 1);
+		cout << startTuple[i] << endl;
 	}
-	this->numbOfactualStep = 0;
+	this->numbOfcurrentStep = 0;
 	this->numbOfSteps = 0;
-
 }
 
+vector<int> Algorithm::get_currentTupel()
+{
+	return currentTupel;
+}
+
+vector<int> Algorithm::get_startTupel()
+{
+	return startTuple;
+}
 
 
 Algorithm::~Algorithm(void)
@@ -29,10 +40,10 @@ void Algorithm::sort()
 }
 
 Step Algorithm::getNextStep() {
-	if (numbOfactualStep < numbOfSteps)
+	if (numbOfcurrentStep < numbOfSteps)
 	{
-		numbOfactualStep++;
-		return steps[numbOfactualStep];
+		numbOfcurrentStep++;
+		return steps[numbOfcurrentStep];
 	}
 	else
 	{
@@ -41,10 +52,10 @@ Step Algorithm::getNextStep() {
 }
 
 Step Algorithm::getPrevStep() {
-	if (numbOfactualStep > 0)
+	if (numbOfcurrentStep > 0)
 	{
-		numbOfactualStep--;
-		return steps[numbOfactualStep];
+		numbOfcurrentStep--;
+		return steps[numbOfcurrentStep];
 	}
 	else
 	{
