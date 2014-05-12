@@ -1,22 +1,25 @@
+#pragma once
+
+
 #include <string>
 #include <vector>
 
 using namespace std;
-enum operation {swap,  };
-
 class Step
 {
 public:
-	Step(vector<int> values, operation operation, unsigned int number, string explantion);
-	
-	Step(vector<int> values, operation operation, unsigned int number);
-	
+	enum Operation {swap,  };
+	Step(vector<int> values, Operation operation, unsigned int number, string explantion);
+
+	Step(vector<int> values, Operation operation, unsigned int number);
+
 	~Step(void);
 
+	Operation getOperation() { return op ;}
 
 private:
 	vector<int> values;
-	operation op;
+	Operation op;
 	int number;
 	string explantion;
 };

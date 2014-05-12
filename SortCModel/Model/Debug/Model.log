@@ -1,18 +1,7 @@
-﻿Der Buildvorgang wurde am 11.05.2014 13:38:14 gestartet.
-     1>Projekt "C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Model\Model.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Algorithm.cpp Model.cpp stdafx.cpp
-         stdafx.cpp
-         Model.cpp
-         Algorithm.cpp
-         Code wird generiert...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Debug\Model.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Debug\Model.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Debug\Model.lib" /MACHINE:X86 Debug\Algorithm.obj
-         Debug\Model.obj
-         Debug\stdafx.obj
-         Model.vcxproj -> C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Debug\Model.exe
-     1>Die Erstellung des Projekts "C:\Users\Steven\Dropbox\Programmierung\TeachersDream\Projekt\SortCModel\Model\Model.vcxproj" ist abgeschlossen, Build Ziel(e).
-
-Build erfolgreich.
-
-Verstrichene Zeit 00:00:07.83
+﻿  Step.cpp
+  stdafx.cpp
+  Model.cpp
+  Algorithm.cpp
+  Code wird generiert...
+Algorithm.obj : error LNK2001: Nicht aufgelöstes externes Symbol ""public: virtual void __thiscall Algorithm::sort(void)" (?sort@Algorithm@@UAEXXZ)".
+C:\Users\Steven\Documents\GitHub\SortC-Model\SortCModel\Debug\Model.exe : fatal error LNK1120: 1 nicht aufgelöste Externe
