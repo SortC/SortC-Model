@@ -21,4 +21,5 @@
 *.app
 
 # Directories
-*/Debug
+SortCModel/Debug/
+SortCModel/Model/Debug/
