@@ -7,9 +7,12 @@ public:
 	BubbleSort(vector<int> startTuple);
 	BubbleSort(int anzValues);
 	~BubbleSort(void);
-	void sort() override;
+	void sort(vector<int> &liste);
 	Step getNextStep() override; 
 	Step getPrevStep()  override;
+	vector<int> getTupel();
 
+private:
+	vector<int> tupel;
 };
 
