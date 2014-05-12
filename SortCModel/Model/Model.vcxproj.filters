@@ -30,6 +30,9 @@
     <ClInclude Include="Step.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="BubbleSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +45,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Step.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleSort.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

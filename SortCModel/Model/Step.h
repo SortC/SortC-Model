@@ -5,13 +5,14 @@
 #include <vector>
 
 using namespace std;
+
+static enum Operation {SWAP, COMP, MARK };
 class Step
 {
 public:
-	enum Operation {swap,  };
-	Step(vector<int> values, Operation operation, unsigned int number, string explantion);
+	Step(vector<int> *values, Operation operation, unsigned int number, string explantion);
 
-	Step(vector<int> values, Operation operation, unsigned int number);
+	Step(vector<int> *values, Operation operation, unsigned int number);
 
 	~Step(void);
 

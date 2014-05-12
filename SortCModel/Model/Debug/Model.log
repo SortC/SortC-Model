@@ -1,6 +1,7 @@
 ﻿  Step.cpp
   stdafx.cpp
   Model.cpp
+  BubbleSort.cpp
   Algorithm.cpp
   Code wird generiert...
 Algorithm.obj : error LNK2001: Nicht aufgelöstes externes Symbol ""public: virtual void __thiscall Algorithm::sort(void)" (?sort@Algorithm@@UAEXXZ)".

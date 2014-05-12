@@ -2,12 +2,14 @@
 
 #include <string>
 #include <vector>
+#include <random>
 #include "Step.h"
 
 using namespace std;
 class Algorithm
 {
 public:
+
 	/**
 	 * Konstruktor für voreingestellte Zahlenfolgen
 	 * @param startTuple vordefiniertes Zahlentupel
@@ -34,12 +36,12 @@ public:
 	/** 
 	 * Gibt den nächsten Schritt aus der Sortierung
 	 */
-	Step getNextStep();
+	virtual Step getNextStep();
 
 	/** 
 	 * Gibt den vorherigen Schritt aus der Sortierung
 	 */
-	Step getPrevStep();
+	virtual Step getPrevStep();
 
 private:
 	vector<int> startTuple;

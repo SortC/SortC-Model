@@ -8,8 +8,13 @@ Algorithm::Algorithm(vector<int> startTuple) {
 }
 
 Algorithm::Algorithm(int anzValues){
+	for (int i = 0; i < anzValues; i++)
+	{
+		this->startTuple.push_back((rand() % 100) + 1);
+	}
 	this->numbOfactualStep = 0;
 	this->numbOfSteps = 0;
+
 }
 
 
