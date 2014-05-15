@@ -1,12 +1,12 @@
 #include "BubbleSort.h"
 #include <iostream>
 
-BubbleSort::BubbleSort(vector<int> startTuple) : Algorithm(startTuple)
+BubbleSort::BubbleSort(int* values, int numberOfValues) : Algorithm(values,numberOfValues)
 {
 
 }
 
-BubbleSort::BubbleSort(int anzValues) : Algorithm(anzValues) 
+BubbleSort::BubbleSort(int numberOfValues) : Algorithm(numberOfValues) 
 {
 
 }
@@ -18,47 +18,30 @@ BubbleSort::~BubbleSort(void)
 
 void BubbleSort::ausgabe()
 {
-	cout << "Anzahl Schritte " << numbOfSteps << endl;
+    cout << "Anzahl Schritte " << numbOfSteps << endl;
 } 
 
 void BubbleSort::sort()
 { 
-	vector<int>* v1;
-	currentTupel = Algorithm::get_startTupel();
-	for (int i = 0; i < currentTupel.size() - 1; ++i)
-	{
-		for (int j = 0; j < currentTupel.size() - i - 1; ++j)
-		{
-			/*v1 = new vector<int>;
-			v1->push_back(j);
-			v1->push_back(j+1);
-			steps.push_back(Step(v1, Operation::COMP, ++numbOfcurrentStep));*/
-			numbOfSteps++;
-			if (currentTupel[j] > currentTupel[j + 1])
-			{
+    for (int i = 0; i < numberOfValues - 1; ++i)
+    {
+        for (int j = 0; j < numberOfValues - i - 1; ++j)
+        {
+            int currentValues[2] = {j,j+1};
+            steps.push_back(Step(currentValues, Operation::COMP, ++numbOfcurrentStep));
+            numbOfSteps++;
+            if (currentTupel[j] > currentTupel[j + 1])
+            {
 
-				/*v1 = new vector<int>;
-				v1->push_back(j);
-				v1->push_back(j+1);
-				steps.push_back(Step(v1, Operation::SWAP, ++numbOfcurrentStep));*/
-				numbOfSteps++;
-			    int tmp = currentTupel[j];
-				currentTupel[j] = currentTupel[j + 1];
-				currentTupel[j + 1] = tmp;
-			}
-		}
-	}
+                int currentValues[2] = {j,j+1};
+                steps.push_back(Step(currentValues, Operation::COMP, ++numbOfcurrentStep));
+                numbOfSteps++;
+                numbOfSteps++;
+                int tmp = currentTupel[j];
+                currentTupel[j] = currentTupel[j + 1];
+                currentTupel[j + 1] = tmp;
+            }
+        }
+    }
 
-}
-
-Step BubbleSort::getNextStep(){
-	vector<int> *v1 = new vector<int>();
-
-	return Step(v1, Operation::COMP, 1);
-}
-
-Step BubbleSort::getPrevStep(){
-	vector<int> *v1 = new vector<int>();
-
-	return Step(v1, Operation::COMP, 1);
 }

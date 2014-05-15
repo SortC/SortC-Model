@@ -4,13 +4,10 @@ class BubbleSort :
 	public Algorithm
 {
 public:
-	BubbleSort(vector<int> startTuple);
-	BubbleSort(int anzValues);
+	BubbleSort(int* values, int numberOfValues);
+	BubbleSort(int numberOfValues);
 	~BubbleSort(void);
 	void sort();
 	void ausgabe();
-	Step getNextStep() override; 
-	Step getPrevStep()  override;
-
 };
 

@@ -14,14 +14,14 @@ public:
 	 * Konstruktor für voreingestellte Zahlenfolgen
 	 * @param startTuple vordefiniertes Zahlentupel
 	 */
-	Algorithm(vector<int> startTuple);
+	Algorithm(int* values, int numberOfValues);
 
 	/**
 	 * Konstruktor für beliebige Zahlenfolge
 	 * @param anzValues Anzahl zu sortierender Werte
 	 */
 
-	Algorithm(int anzValues);
+	Algorithm(int numberOfValues);
 	/**
 	 * Destruktor
 	 */
@@ -43,14 +43,15 @@ public:
 	 */
 	virtual Step getPrevStep();
 
-	vector<int> get_startTupel();
+	int* get_startTupel();
 
-	vector<int> get_currentTupel();
+	int* get_currentTupel();
 
 protected:
-	vector<int> startTuple;
-	vector<int> currentTupel;
+	int* startTuple;
+	int* currentTupel;
 	vector<Step> steps;
+    int numberOfValues;
 	int numbOfSteps;
 	int numbOfcurrentStep;
 };

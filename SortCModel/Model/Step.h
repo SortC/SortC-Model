@@ -10,16 +10,16 @@ static enum Operation {SWAP, COMP, MARK };
 class Step
 {
 public:
-	Step(vector<int> *values, Operation operation, unsigned int number, string explanation);
+	Step(int* values, Operation operation, unsigned int number, string explanation);
 
-	Step(vector<int> *values, Operation operation, unsigned int number);
+	Step(int* values, Operation operation, unsigned int number);
 
 	~Step(void);
 
 	Operation getOperation() { return op ;}
 
-private:
-	vector<int> values;
+protected:
+	int* values;
 	Operation op;
 	int number;
 	string explanation;

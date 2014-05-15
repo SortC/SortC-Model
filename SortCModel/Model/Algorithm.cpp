@@ -2,19 +2,24 @@
 #include <iostream>
 #include <time.h>
 
-Algorithm::Algorithm(vector<int> startTuple) {
-	this->startTuple = startTuple;
-	this->numbOfcurrentStep = 0;
+Algorithm::Algorithm(int* values, int numberOfValues) {
+	this->startTuple = values;
+    this->currentTupel = values;
+    this->numberOfValues = numberOfValues;
+    this->numbOfcurrentStep = 0;
 	this->numbOfSteps = 0;
-	this->steps;
+	
 }
 
-Algorithm::Algorithm(int anzValues)
+Algorithm::Algorithm(int numberOfValues)
 {
-	srand(time(nullptr));
-	for (int i = 0; i < anzValues; i++)
+    this->numberOfValues = numberOfValues;
+    this->currentTupel = new int[numberOfValues];
+    
+    srand(time(nullptr));
+	for (int i = 0; i < numberOfValues; i++)
 	{
-		this->startTuple.push_back(rand() % 100);
+		this->currentTupel[i] = rand() % 100;
 	}
 
 	this->numbOfcurrentStep = 0;
@@ -30,12 +35,12 @@ void Algorithm::sort()
 	
 }
 
-vector<int> Algorithm::get_currentTupel()
+int* Algorithm::get_currentTupel()
 {
 	return currentTupel;
 }
 
-vector<int> Algorithm::get_startTupel()
+int* Algorithm::get_startTupel()
 {
 	return startTuple;
 }
