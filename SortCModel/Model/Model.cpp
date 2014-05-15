@@ -6,39 +6,23 @@
 #include "Step.h"
 #include <iostream>
 
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
+    BubbleSort bs = (100);
+
+    clock_t begin = clock();
 	
-
-clock_t init, final;
-
-init=clock();
-
-time_t timer;
-time(&timer);
-	//vector<int> values(2,5);
-	//vector<int>* v1 = &values;
-	//values.push_back(1);
-	//values.push_back(4);
-	//cout << values[2];
-
-	//Step s1(v1, Operation::COMP, 1);
-	//cout << "Unsortierte liste: " << endl;
-	//for(int i = 0; i < values.size(); i++)
-	//{
-	//	cout<<values[i]<<endl;
-	//}
-
-	BubbleSort bs = (100);
-	bs.sort();
+    bs.sort();
 	
-time_t timer1;
-time(&timer1);
-cout <<"akjdsfadjkshfashlud"<< timer1 - timer << endl;
-	bs.ausgabe();
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout <<"Passed time: "<< elapsed_secs << " seconds" << endl;
+	
+    
+    bs.ausgabe();
 
 	getchar();
 	return 0;	
