@@ -34,7 +34,7 @@ void BubbleSort::sort()
             {
 
                 int currentValues[2] = {j,j+1};
-                steps.push_back(Step(currentValues, Operation::COMP, ++numbOfcurrentStep));
+                steps.push_back(Step(currentValues, Operation::SWAP, ++numbOfcurrentStep));
                 numbOfSteps++;
                 numbOfSteps++;
                 int tmp = currentTupel[j];
