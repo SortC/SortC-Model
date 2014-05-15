@@ -4,14 +4,14 @@ Step::Step(vector<int> *values, Operation operation, unsigned int number, string
 	this->values = *values;
 	this->op = operation;
 	this->number = number;
-	this->explantion = explantion;
+	this->explanation = explantion;
 }
 	
 Step::Step(vector<int> *values, Operation operation, unsigned int number){
 	this->values = *values;
 	this->op = operation;
 	this->number = number;
-	this->explantion = "";
+	this->explanation = "";
 }
 
 Step::~Step(void){

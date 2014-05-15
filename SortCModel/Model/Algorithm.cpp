@@ -1,5 +1,6 @@
 #include "Algorithm.h"
 #include <iostream>
+#include <time.h>
 
 Algorithm::Algorithm(vector<int> startTuple) {
 	this->startTuple = startTuple;
@@ -10,13 +11,23 @@ Algorithm::Algorithm(vector<int> startTuple) {
 
 Algorithm::Algorithm(int anzValues)
 {
+	srand(time(nullptr));
 	for (int i = 0; i < anzValues; i++)
 	{
-		this->startTuple.push_back((rand() % 100) + 1);
-		cout << startTuple[i] << endl;
+		this->startTuple.push_back(rand() % 100);
 	}
+
 	this->numbOfcurrentStep = 0;
 	this->numbOfSteps = 0;
+}
+
+Algorithm::~Algorithm(void)
+{
+}
+
+void Algorithm::sort()
+{
+	
 }
 
 vector<int> Algorithm::get_currentTupel()
@@ -29,15 +40,6 @@ vector<int> Algorithm::get_startTupel()
 	return startTuple;
 }
 
-
-Algorithm::~Algorithm(void)
-{
-}
-
-void Algorithm::sort()
-{
-	
-}
 
 Step Algorithm::getNextStep() {
 	if (numbOfcurrentStep < numbOfSteps)

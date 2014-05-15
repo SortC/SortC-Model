@@ -47,7 +47,7 @@ public:
 
 	vector<int> get_currentTupel();
 
-private:
+protected:
 	vector<int> startTuple;
 	vector<int> currentTupel;
 	vector<Step> steps;
