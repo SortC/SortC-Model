@@ -11,7 +11,11 @@
 using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
-    BubbleSort bs = (100);
+    int zahlen [100];
+    for(int i = 0; i < 100; i++){
+        zahlen[i] = 100-i;
+    }
+    BubbleSort bs(zahlen,100);
 
     clock_t begin = clock();
 	

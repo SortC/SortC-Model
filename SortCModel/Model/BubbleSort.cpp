@@ -18,6 +18,9 @@ BubbleSort::~BubbleSort(void)
 
 void BubbleSort::ausgabe()
 {
+    for(int i = 0; i< numberOfValues; i++){
+        cout << i << ": " << currentTupel[i] << endl;
+    }
     cout << "Anzahl Schritte " << numbOfSteps << endl;
 } 
 
@@ -35,7 +38,6 @@ void BubbleSort::sort()
 
                 int currentValues[2] = {j,j+1};
                 steps.push_back(Step(currentValues, Operation::SWAP, ++numbOfcurrentStep));
-                numbOfSteps++;
                 numbOfSteps++;
                 int tmp = currentTupel[j];
                 currentTupel[j] = currentTupel[j + 1];
