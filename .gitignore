@@ -20,6 +20,10 @@
 *.out
 *.app
 
+#Logs
+*.log
+*.tlog
+
 # Directories
 SortCModel/Debug/
 SortCModel/Model/Debug/
