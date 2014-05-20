@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -16,7 +17,9 @@ public:
 
 	~Step(void);
 
-	Operation getOperation() { return op ;}
+	Operation getOperation() { return op ;};
+
+	string toString();
 
 protected:
 	int* values;

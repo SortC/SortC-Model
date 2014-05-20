@@ -28,6 +28,11 @@ int _tmain(int argc, _TCHAR* argv[])
     
     bs.ausgabe();
 
+	int testZahlen [2] = {1,3};
+	Step testStep(testZahlen, Operation::COMP, 5);
+
+	cout << testStep.toString();
+
 	getchar();
 	return 0;	
 }

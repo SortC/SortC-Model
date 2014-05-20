@@ -31,14 +31,12 @@ void BubbleSort::sort()
         for (int j = 0; j < numberOfValues - i - 1; ++j)
         {
             int currentValues[2] = {j,j+1};
-            steps.push_back(Step(currentValues, Operation::COMP, ++numbOfcurrentStep));
-            numbOfSteps++;
+			steps.push_back(Step(currentValues, Operation::COMP, ++numbOfSteps));
             if (currentTupel[j] > currentTupel[j + 1])
             {
 
                 int currentValues[2] = {j,j+1};
-                steps.push_back(Step(currentValues, Operation::SWAP, ++numbOfcurrentStep));
-                numbOfSteps++;
+				steps.push_back(Step(currentValues, Operation::SWAP, ++numbOfSteps));
                 int tmp = currentTupel[j];
                 currentTupel[j] = currentTupel[j + 1];
                 currentTupel[j + 1] = tmp;
