@@ -14,7 +14,7 @@ Algorithm::Algorithm(int numberOfValues)
 {
 	this->numbOfValues = numberOfValues;
 	this->currentTupel = new int[numberOfValues];
-
+	this->startTuple = new int[numberOfValues];
 	srand(time(nullptr));
 	for (int i = 0; i < numberOfValues; i++)
 	{
