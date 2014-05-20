@@ -18,6 +18,7 @@ public:
 	~Step(void);
 
 	Operation getOperation() { return op;};
+
 	int getNumber(){ return number;};
 
 	string toString();

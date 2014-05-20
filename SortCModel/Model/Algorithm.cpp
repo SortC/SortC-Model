@@ -4,15 +4,15 @@
 Algorithm::Algorithm(int* values, int numberOfValues) {
 	this->startTuple = values;
     this->currentTupel = values;
-    this->numberOfValues = numberOfValues;
-    this->numbOfcurrentStep = 0;
+    this->numbOfValues = numberOfValues;
+    this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
 	
 }
 
 Algorithm::Algorithm(int numberOfValues)
 {
-    this->numberOfValues = numberOfValues;
+    this->numbOfValues = numberOfValues;
     this->currentTupel = new int[numberOfValues];
     
     srand(time(nullptr));
@@ -21,7 +21,7 @@ Algorithm::Algorithm(int numberOfValues)
 		this->currentTupel[i] = rand() % 100;
 	}
 
-	this->numbOfcurrentStep = 0;
+	this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
 }
 
@@ -51,9 +51,9 @@ int* Algorithm::get_startTupel()
 Step* Algorithm::getNextStep() {
 	if(numbOfSteps == 0)
 		sort();
-	if (numbOfcurrentStep < numbOfSteps)
+	if (numbOfCurrentStep < numbOfSteps)
 	{
-		return steps[numbOfcurrentStep++];
+		return steps[numbOfCurrentStep++];
 	}
 	else
 	{
@@ -62,10 +62,10 @@ Step* Algorithm::getNextStep() {
 }
 
 Step* Algorithm::getPrevStep() {
-	if (numbOfcurrentStep > 0)
+	if (numbOfCurrentStep > 0)
 	{
-		numbOfcurrentStep--;
-		return steps[numbOfcurrentStep];
+		numbOfCurrentStep--;
+		return steps[numbOfCurrentStep];
 	}
 	else
 	{

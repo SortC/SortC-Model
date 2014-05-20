@@ -44,15 +44,15 @@ public:
 	virtual Step* getPrevStep();
 
 	int* get_startTupel();
-
+	
 	int* get_currentTupel();
 
 protected:
 	int* startTuple;
 	int* currentTupel;
 	vector<Step*> steps;
-	int numberOfValues;
+	int numbOfValues;
 	int numbOfSteps;
-	int numbOfcurrentStep;
+	int numbOfCurrentStep;
 };
 
