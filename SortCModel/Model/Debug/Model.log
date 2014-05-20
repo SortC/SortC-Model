@@ -1,8 +1,0 @@
-﻿  Step.cpp
-  stdafx.cpp
-  Model.cpp
-  BubbleSort.cpp
-  Algorithm.cpp
-  Code wird generiert...
-Algorithm.obj : error LNK2001: Nicht aufgelöstes externes Symbol ""public: virtual void __thiscall Algorithm::sort(void)" (?sort@Algorithm@@UAEXXZ)".
-C:\Users\Steven\Documents\GitHub\SortC-Model\SortCModel\Debug\Model.exe : fatal error LNK1120: 1 nicht aufgelöste Externe
