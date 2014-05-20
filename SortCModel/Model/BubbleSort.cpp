@@ -14,15 +14,8 @@ BubbleSort::BubbleSort(int numberOfValues) : Algorithm(numberOfValues)
 
 BubbleSort::~BubbleSort(void)
 {
-}
 
-void BubbleSort::ausgabe()
-{
-	for(int i = 0; i< numbOfValues; i++){
-		cout << i << ": " << currentTupel[i] << endl;
-	}
-	cout << "Anzahl Schritte: " << numbOfSteps << endl;
-} 
+}
 
 void BubbleSort::sort()
 { 

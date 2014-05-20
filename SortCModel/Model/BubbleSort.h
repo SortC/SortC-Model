@@ -8,6 +8,5 @@ public:
 	BubbleSort(int numberOfValues);
 	~BubbleSort(void);
 	void sort();
-	void ausgabe();
 };
 

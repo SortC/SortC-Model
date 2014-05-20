@@ -11,41 +11,47 @@ class Algorithm
 public:
 
 	/**
-	 * Konstruktor für voreingestellte Zahlenfolgen
-	 * @param startTuple vordefiniertes Zahlentupel
-	 */
+	* Konstruktor für voreingestellte Zahlenfolgen
+	* @param startTuple vordefiniertes Zahlentupel
+	*/
 	Algorithm(int* values, int numberOfValues);
 
 	/**
-	 * Konstruktor für beliebige Zahlenfolge
-	 * @param anzValues Anzahl zu sortierender Werte
-	 */
-
+	* Konstruktor für zufällige Zahlenfolge
+	* @param anzValues Anzahl zu sortierender Werte
+	*/
 	Algorithm(int numberOfValues);
+
 	/**
-	 * Destruktor
-	 */
-	
+	* Destruktor
+	*/
 	~Algorithm(void);
-	
+
 	/** 
-	 * Startet die Sortierung
-	 */
+	* Startet die Sortierung
+	*/
 	virtual void sort();
 
 	/** 
-	 * Gibt den nächsten Schritt aus der Sortierung
-	 */
-	virtual Step* getNextStep();
+	* Gibt Pointer auf den nächsten Schritt aus der Sortierung zurück
+	* Gibt NULL zurück, fall kein nächster Schritt existiert
+	*/
+	Step* getNextStep();
 
 	/** 
-	 * Gibt den vorherigen Schritt aus der Sortierung
-	 */
-	virtual Step* getPrevStep();
+	* Gibt Pointer auf den vorherigen Schritt aus der Sortierung zurück
+	* Gibt NULL zurück, fall kein vorheriger Schritt existiert
+	*/
+	Step* getPrevStep();
 
-	int* get_startTupel();
-	
-	int* get_currentTupel();
+	/**
+	* Getter-Funktionen
+	*/
+	int* getCurrentTupel(){ return currentTupel; };
+	int* getStartTupel(){ return startTuple; };
+	int getNumbOfCurrentStep(){ return numbOfCurrentStep; };
+	int getNumbOfSteps(){ return numbOfSteps; };
+	int getNumbOfValues(){ return numbOfValues; };
 
 protected:
 	int* startTuple;
