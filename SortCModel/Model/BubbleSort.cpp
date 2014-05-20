@@ -22,7 +22,6 @@ void BubbleSort::ausgabe()
 		cout << i << ": " << currentTupel[i] << endl;
 	}
 	cout << "Anzahl Schritte: " << numbOfSteps << endl;
-	cout << "Aktueller Schritt: " << numbOfcurrentStep << endl;
 } 
 
 void BubbleSort::sort()

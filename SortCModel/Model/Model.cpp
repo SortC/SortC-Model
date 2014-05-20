@@ -33,9 +33,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	//cout << testStep.toString();
 	
 	Step* currStep = bs.getNextStep(); 
-
+	int i = 1;
 	do{
-		cout << currStep->toString();
+		if(currStep->getOperation() == Operation::SWAP){
+			cout <<currStep->getNumber() << ".Schritt: --> " << currStep->toString();
+			cout << endl;
+			i++;
+		}
 		currStep = bs.getNextStep();
 	}while(currStep != NULL);
 	

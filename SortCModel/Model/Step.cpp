@@ -30,7 +30,6 @@ string Step::toString(){
 		default:
 			break;
 		}
-		
 		explanation = buffer.str();
 	}
 	return this->explanation;
