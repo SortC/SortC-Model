@@ -1,5 +1,4 @@
 #include "Algorithm.h"
-#include <iostream>
 #include <time.h>
 
 Algorithm::Algorithm(int* values, int numberOfValues) {
@@ -28,6 +27,9 @@ Algorithm::Algorithm(int numberOfValues)
 
 Algorithm::~Algorithm(void)
 {
+	for(int i = 0; i < numbOfSteps; i++){
+		delete(steps[i]);
+	}
 }
 
 void Algorithm::sort()
@@ -46,19 +48,20 @@ int* Algorithm::get_startTupel()
 }
 
 
-Step Algorithm::getNextStep() {
+Step* Algorithm::getNextStep() {
+	if(numbOfSteps == 0)
+		sort();
 	if (numbOfcurrentStep < numbOfSteps)
 	{
-		numbOfcurrentStep++;
-		return steps[numbOfcurrentStep];
+		return steps[numbOfcurrentStep++];
 	}
 	else
 	{
-		throw "Keine nachfolgenden Schritte mehr vorhanden";
+		return NULL;
 	}
 }
 
-Step Algorithm::getPrevStep() {
+Step* Algorithm::getPrevStep() {
 	if (numbOfcurrentStep > 0)
 	{
 		numbOfcurrentStep--;
@@ -66,6 +69,6 @@ Step Algorithm::getPrevStep() {
 	}
 	else
 	{
-		throw "Keine vorherigen Schritte mehr vorhanden";
+		return NULL;
 	}
 }

@@ -11,9 +11,9 @@ static enum Operation {SWAP, COMP, MARK };
 class Step
 {
 public:
-	Step(int* values, Operation operation, unsigned int number, string explanation);
+	Step(int firstValue, int secondValue, Operation operation, unsigned int number, string explanation);
 
-	Step(int* values, Operation operation, unsigned int number);
+	Step(int firstValue, int secondValue, Operation operation, unsigned int number);
 
 	~Step(void);
 
@@ -22,7 +22,8 @@ public:
 	string toString();
 
 protected:
-	int* values;
+	int firstValue;
+	int secondValue;
 	Operation op;
 	int number;
 	string explanation;

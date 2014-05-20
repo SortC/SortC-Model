@@ -36,12 +36,12 @@ public:
 	/** 
 	 * Gibt den nächsten Schritt aus der Sortierung
 	 */
-	virtual Step getNextStep();
+	virtual Step* getNextStep();
 
 	/** 
 	 * Gibt den vorherigen Schritt aus der Sortierung
 	 */
-	virtual Step getPrevStep();
+	virtual Step* getPrevStep();
 
 	int* get_startTupel();
 
@@ -50,8 +50,8 @@ public:
 protected:
 	int* startTuple;
 	int* currentTupel;
-	vector<Step> steps;
-    int numberOfValues;
+	vector<Step*> steps;
+	int numberOfValues;
 	int numbOfSteps;
 	int numbOfcurrentStep;
 };

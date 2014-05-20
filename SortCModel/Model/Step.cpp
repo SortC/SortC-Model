@@ -1,14 +1,16 @@
 #include "Step.h"
 
-Step::Step(int* values, Operation operation, unsigned int number, string explantion){
-	this->values = values;
+Step::Step(int firstValue, int secondValue, Operation operation, unsigned int number, string explanation){
+	this->firstValue = firstValue;
+	this->secondValue = secondValue;
 	this->op = operation;
 	this->number = number;
-	this->explanation = explantion;
+	this->explanation = explanation;
 }
 	
-Step::Step(int* values, Operation operation, unsigned int number){
-	this->values = values;
+Step::Step(int firstValue, int secondValue, Operation operation, unsigned int number){
+	this->firstValue = firstValue;
+	this->secondValue = secondValue;
 	this->op = operation;
 	this->number = number;
 	this->explanation = "";
@@ -19,19 +21,19 @@ string Step::toString(){
 		stringstream buffer;
 		switch (op)
 		{
-		case SWAP: buffer << "Tausche Stelle " << values[0] << " mit Stelle " << values[1] << endl;
+		case SWAP: buffer << "Tausche Stelle " << firstValue << " mit Stelle " << secondValue << endl;
 			break;
-		case COMP: buffer << "Vergleiche Stelle " << values[0] << " mit Stelle " << values[1] << endl;
+		case COMP: buffer << "Vergleiche Stelle " << firstValue << " mit Stelle " << secondValue << endl;
 			break;
-		case MARK: buffer << "Betrachte Bereich von Stelle " << values[0] << " bis Stelle " << values[1] << endl;
+		case MARK: buffer << "Betrachte Bereich von Stelle " << firstValue << " bis Stelle " << secondValue << endl;
 			break;
 		default:
 			break;
 		}
-		return buffer.str();
-	}else{
-		return explanation;
+		
+		explanation = buffer.str();
 	}
+	return this->explanation;
 }
 
 Step::~Step(void){

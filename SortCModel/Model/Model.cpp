@@ -11,11 +11,11 @@
 using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
-    int zahlen [100];
-    for(int i = 0; i < 100; i++){
-        zahlen[i] = 100-i;
+    int zahlen [5];
+    for(int i = 0; i < 5; i++){
+        zahlen[i] = 5-i;
     }
-    BubbleSort bs(zahlen,100);
+    BubbleSort bs(zahlen,5);
 
     clock_t begin = clock();
 	
@@ -28,12 +28,20 @@ int _tmain(int argc, _TCHAR* argv[])
     
     bs.ausgabe();
 
-	int testZahlen [2] = {1,3};
-	Step testStep(testZahlen, Operation::COMP, 5);
+	//Step testStep(1,5, Operation::COMP, 5);
 
-	cout << testStep.toString();
+	//cout << testStep.toString();
+	
+	Step* currStep = bs.getNextStep(); 
 
+	do{
+		cout << currStep->toString();
+		currStep = bs.getNextStep();
+	}while(currStep != NULL);
+	
 	getchar();
-	return 0;	
+	
+
+	return 0;
 }
 
