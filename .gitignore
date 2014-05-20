@@ -20,9 +20,12 @@
 *.out
 *.app
 
-#Logs
+# Logs
 *.log
 *.tlog
+
+# Visual Studio User Options
+*.suo
 
 # Directories
 SortCModel/Debug/
