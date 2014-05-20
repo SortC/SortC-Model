@@ -17,11 +17,19 @@ public:
 
 	~Step(void);
 
-	Operation getOperation() { return op;};
-
-	int getNumber(){ return number;};
-
+	/**
+	* Liefert explanation zurück
+	* erstellt eine Explanation aus den vorliegenden Informationen, falls keine Existiert
+	*/
 	string toString();
+
+	/**
+	* Getter-Funktionen
+	*/
+	Operation getOperation() { return op; };
+	int getNumber(){ return number; };
+	int getFirstValue(){ return firstValue; };
+	int getSecondValue(){ return secondValue; };
 
 protected:
 	int firstValue;

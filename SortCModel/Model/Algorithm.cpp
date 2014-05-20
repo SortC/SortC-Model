@@ -3,19 +3,19 @@
 
 Algorithm::Algorithm(int* values, int numberOfValues) {
 	this->startTuple = values;
-    this->currentTupel = values;
-    this->numbOfValues = numberOfValues;
-    this->numbOfCurrentStep = 0;
+	this->currentTupel = values;
+	this->numbOfValues = numberOfValues;
+	this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
-	
+
 }
 
 Algorithm::Algorithm(int numberOfValues)
 {
-    this->numbOfValues = numberOfValues;
-    this->currentTupel = new int[numberOfValues];
-    
-    srand(time(nullptr));
+	this->numbOfValues = numberOfValues;
+	this->currentTupel = new int[numberOfValues];
+
+	srand(time(nullptr));
 	for (int i = 0; i < numberOfValues; i++)
 	{
 		this->currentTupel[i] = rand() % 100;
@@ -34,19 +34,8 @@ Algorithm::~Algorithm(void)
 
 void Algorithm::sort()
 {
-	
-}
 
-int* Algorithm::get_currentTupel()
-{
-	return currentTupel;
 }
-
-int* Algorithm::get_startTupel()
-{
-	return startTuple;
-}
-
 
 Step* Algorithm::getNextStep() {
 	if(numbOfSteps == 0)
