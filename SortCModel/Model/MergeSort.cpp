@@ -46,12 +46,14 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 		steps.push_back(newStep);
 		if(a[h]<=a[j])
 		{
+			newStep = new Step(h,i,Operation::CPY, ++numbOfSteps);
+			steps.push_back(newStep);
 			b[i]=a[h];
 			h++;
 		}
 		else
 		{
-			newStep = new Step(h,j,Operation::SWAP, ++numbOfSteps);
+			newStep = new Step(j,i,Operation::CPY, ++numbOfSteps);
 			steps.push_back(newStep);
 			b[i]=a[j];
 			j++;
@@ -62,6 +64,8 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 	{
 		for(k=j; k<=high; k++)
 		{
+			newStep = new Step(k,i,Operation::CPY, ++numbOfSteps);
+			steps.push_back(newStep);
 			b[i]=a[k];
 			i++;
 		}
@@ -70,12 +74,16 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 	{
 		for(k=h; k<=pivot; k++)
 		{
+			newStep = new Step(k,i,Operation::CPY, ++numbOfSteps);
+			steps.push_back(newStep);
 			b[i]=a[k];
 			i++;
 		}
 	}
 	for(k=low; k<=high; k++)
 	{
+		newStep = new Step(k,k,Operation::R_CPY, ++numbOfSteps);
+		steps.push_back(newStep);
 		a[k]=b[k];
 	}
 }
