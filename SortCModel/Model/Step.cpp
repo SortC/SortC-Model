@@ -27,6 +27,8 @@ string Step::toString(){
 			break;
 		case MARK: buffer << "Betrachte Bereich von Stelle " << firstValue << " bis Stelle " << secondValue << endl;
 			break;
+		case PIVOT: buffer << "Setze Pivotelement auf Stelle " << firstValue <<endl;
+			break;
 		default:
 			break;
 		}

@@ -44,7 +44,6 @@ void QuickSort::sort(){
 
 int QuickSort::partition(int a[], int left, int right)
 {
-	
 	int pivot = a[left];
 	while (true)
 	{
@@ -55,11 +54,14 @@ int QuickSort::partition(int a[], int left, int right)
 		while (a[right] > pivot)
 			right--;
 
+		// Wenn linker Zeiger rechten Zeiger noch nicht erreicht hat tausche Werte
 		if (left < right)
 		{
+			//steps.push_back(new Step(
 			int temp = a[right];
 			a[right] = a[left];
 			a[left] = temp;
+			
 		}
 		else
 		{

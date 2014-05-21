@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "BubbleSort.h"
 #include "MergeSort.h"
+#include "QuickSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>
@@ -98,6 +99,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	// Test des BubbleSort
 	testAlgorithm(new BubbleSort(ANZWERTE));
 	testAlgorithm(new MergeSort(ANZWERTE));
+	testAlgorithm(new QuickSort(ANZWERTE));
 	getchar();
 	return 0;
 }
