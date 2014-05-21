@@ -14,6 +14,6 @@ private:
 	/**
 	 * erzeugt eine Teilliste
 	 */
-	int Partition(int a[], int left, int right);
+	int partition(int a[], int left, int right);
 };
 

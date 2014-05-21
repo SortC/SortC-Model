@@ -31,7 +31,7 @@ void QuickSort::sort(){
 		right = list.back().second;
 		list.pop_back();
 
-		int pivot = Partition(currentTupel, left, right);   
+		int pivot = partition(currentTupel, left, right);   
 
 		std::pair<int,int> p;
 		if(pivot > 1)
@@ -42,7 +42,7 @@ void QuickSort::sort(){
 	}
 }
 
-int Partition(int a[], int left, int right)
+int QuickSort::partition(int a[], int left, int right)
 {
 	
 	int pivot = a[left];
