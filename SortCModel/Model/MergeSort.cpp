@@ -21,8 +21,6 @@ void MergeSort::sort(){
 
 void MergeSort::merge_sort(int *a, int*b, int low, int high)
 {
-	Step* newStep = new Step(low,high,Operation::MARK, ++numbOfSteps);
-	steps.push_back(newStep);
 	int pivot;
 	if(low<high)
 	{
@@ -35,6 +33,8 @@ void MergeSort::merge_sort(int *a, int*b, int low, int high)
 
 void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 {
+	Step* newStep = new Step(low,high,Operation::MARK, ++numbOfSteps);
+	steps.push_back(newStep);
 	int h,i,j,k;
 	h=low;
 	i=low;

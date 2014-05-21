@@ -58,10 +58,12 @@ void testAlgorithm(Algorithm* algo) {
 			break;
 			}
 		case COMP:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
 			comp++;
 			break;
 			}
 		case MARK:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
 			mark++;
 			break;
 			}
@@ -70,6 +72,15 @@ void testAlgorithm(Algorithm* algo) {
 		}
 		currStep = algo->getNextStep();
 	}while(currStep != NULL);
+
+	cout << "Endwerte: " ;
+	int *endTupel = algo->getCurrentTupel();
+	for (int i = 0; i < algo->getNumbOfValues(); i++)
+	{
+		cout << " | " << endTupel[i];
+	}
+
+	cout << " |" << endl;
 	cout << "\nBenoetigte Schritte: " << algo->getNumbOfSteps()<<endl;
 	cout << "Nach Typ: " << endl;
 	cout << "MARK:\t" << mark << endl;
