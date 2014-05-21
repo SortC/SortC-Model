@@ -17,13 +17,11 @@ void QuickSort::sort(){
 	if(left >= right)
 		return; // Invalid index range
 
-	std::vector<std::pair<int, int> > list;
+	vector<std::pair<int, int> > list;
 
-	Step *newStep;
-	newStep = new Step(left,right, Operation::COMP, ++numbOfSteps);
-	steps.push_back(newStep);  
+	//Step *newStep;
 
-	list.push_back(std::pair<int, int>(left, right));
+	list.push_back(pair<int, int>(left, right));
 
 	while(list.size() != 0)
 	{
@@ -52,21 +50,21 @@ steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
 
 		while (a[left] < pivot){
 			stringstream buffer;
-			buffer << "Vergleiche Pivot an Stelle " << pivotStelle <<" mit LZ an Stelle " << left << endl;
+			buffer << "Vergleiche Pivot[" << pivotStelle <<"] mit LZ[" << left << "]" << endl;
 			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			left++;
 		}
 
 		while (a[right] > pivot){
 			stringstream buffer;
-			buffer << "Vergleiche Pivot an Stelle " << pivotStelle <<" mit RZ an Stelle " << left << endl;
+			buffer << "Vergleiche Pivot [" << pivotStelle <<"] mit RZ[" << left <<"]" << endl;
 			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			right--;
 		}
 
 
 		stringstream buffer;
-		buffer << "Prüfe ob Stelle von LZ (" << left << ") < als Stelle von RZ (" << right << ")" << endl;
+		buffer << "Prüfe ob LZ[" << left << "] <  RZ[" << right << "]" << endl;
 		steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 
 		if (left < right)
