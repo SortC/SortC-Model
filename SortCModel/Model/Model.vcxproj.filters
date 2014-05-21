@@ -39,6 +39,18 @@
     <ClInclude Include="MergeSort.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="InsertionSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="BucketSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SelecetionSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +72,18 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="MergeSort.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertionSort.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapSort.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="BucketSort.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SelecetionSort.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

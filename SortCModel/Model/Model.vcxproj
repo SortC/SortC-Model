@@ -85,8 +85,12 @@
     <ClInclude Include="BubbleSort.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="BucketSort.h" />
+    <ClInclude Include="HeapSort.h" />
+    <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="QuickSort.h" />
+    <ClInclude Include="SelecetionSort.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Step.h" />
     <ClInclude Include="targetver.h" />
@@ -98,9 +102,13 @@
     <ClCompile Include="BubbleSort.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="BucketSort.cpp" />
+    <ClCompile Include="HeapSort.cpp" />
+    <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="QuickSort.cpp" />
+    <ClCompile Include="SelecetionSort.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Step.cpp" />
   </ItemGroup>
