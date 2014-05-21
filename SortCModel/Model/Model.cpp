@@ -5,6 +5,8 @@
 #include "BubbleSort.h"
 #include "MergeSort.h"
 #include "QuickSort.h"
+#include "SelectionSort.h"
+#include "InsertionSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>
@@ -13,21 +15,23 @@
 #include <random>
 
 
-#define ANZWERTE 5  
+#define ANZWERTE 5
 #define LINEWIDTH 40
-#include "InsertionSort.h"
-#include "SelectionSort.h"
 const char FILLCHAR = '-';
 
 using namespace std;
 
 
 
+void printStepLine(int num, string operation, string explanation){
+	cout << "[" <<num << "] \t " << operation << "\t " << explanation;
+}
+
 /**
- * Testet einen Algorithmus
- * @param algo Algorithmus
- * @param isBackwardSorted gibt an, ob die Zahlen umgekehrt sortiert sein sollen
- */
+* Testet einen Algorithmus
+* @param algo Algorithmus
+* @param isBackwardSorted gibt an, ob die Zahlen umgekehrt sortiert sein sollen
+*/
 void testAlgorithm(Algorithm* algo) {
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl;
 	cout << typeid(*algo).name() << endl << endl;
@@ -38,17 +42,17 @@ void testAlgorithm(Algorithm* algo) {
 		cout << " | " << startTuple[i];
 	}
 	cout << " |" << endl;
-	/* clock_t begin = clock(); */
-	
+	clock_t begin = clock();
+
 	algo->sort();
 
-	/*clock_t end = clock();
-	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC / 1000;
-	cout <<"Passed time: "<< elapsed_secs << " milliseconds" << endl<< endl;*/
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) ;
+	cout <<"Passed time: "<< elapsed_secs << " milliseconds" << endl<< endl;
 
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
-	cout << "No.\t Explanation" << endl;
+	cout << "No.\t Oper. \t Explanation" << endl;
 	int counter[7];
 	for(int i = 0; i < 7; i++){
 		counter[i] = 0;
@@ -56,40 +60,47 @@ void testAlgorithm(Algorithm* algo) {
 	do{
 		switch (currStep->getOperation())
 		{
-		case SWAP: {
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[SWAP]++;
-			break;
+		case SWAP:
+			{
+				printStepLine(currStep->getNumber(), "SWAP" ,currStep->toString());
+				counter[SWAP]++;
+				break;
 			}
-		case COMP:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[COMP]++;
-			break;
+		case COMP:
+			{
+				printStepLine(currStep->getNumber(), "COMP" ,currStep->toString());
+				counter[COMP]++;
+				break;
 			}
-		case MARK:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[MARK]++;
-			break;
+		case MARK:
+			{
+				printStepLine(currStep->getNumber(), "MARK" ,currStep->toString());
+				counter[MARK]++;
+				break;
 			}
-		case PIVOT:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[PIVOT]++;
-			break;
+		case PIVOT:
+			{
+				printStepLine(currStep->getNumber(), "PIVOT" ,currStep->toString());
+				counter[PIVOT]++;
+				break;
 			}
-		case CPY:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[CPY]++;
-			break;
+		case CPY:
+			{
+				printStepLine(currStep->getNumber(), "CPY" ,currStep->toString());
+				counter[CPY]++;
+				break;
 			}
-		case R_CPY: {
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[R_CPY]++;
-			break;
+		case R_CPY: 
+			{
+				printStepLine(currStep->getNumber(), "R_CPY" ,currStep->toString());
+				counter[R_CPY]++;
+				break;
 			}
-		case MIN: {
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			counter[MIN]++;
-			break;
+		case MIN:
+			{
+				printStepLine(currStep->getNumber(), "MIN", currStep->toString());
+				counter[MIN]++;
+				break;
 			}
 		default:
 			break;
@@ -97,7 +108,7 @@ void testAlgorithm(Algorithm* algo) {
 		currStep = algo->getNextStep();
 	}while(currStep != NULL);
 
-	cout << "Endwerte: " ;
+	cout << "\nEndwerte: " ;
 	int *endTupel = algo->getCurrentTupel();
 	for (int i = 0; i < algo->getNumbOfValues(); i++)
 	{
@@ -113,7 +124,7 @@ void testAlgorithm(Algorithm* algo) {
 	cout << "PIVOT:\t" << counter[PIVOT] << endl;
 	cout << "CPY:\t" << counter[CPY] << endl;
 	cout << "R_CPY:\t" << counter[R_CPY] << endl;
-	cout << "Min:\t" << counter[MIN] << endl;
+	cout << "MIN:\t" << counter[MIN] << endl;
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl << endl<< endl;
 	delete algo;
 }
@@ -124,13 +135,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << endl;
 
 	// Test des BubbleSort
-	//testAlgorithm(new BubbleSort(ANZWERTE));
-	//testAlgorithm(new MergeSort(ANZWERTE));
-	//testAlgorithm(new QuickSort(ANZWERTE));
-	testAlgorithm(new InsertionSort(ANZWERTE));
+	testAlgorithm(new BubbleSort(ANZWERTE));
+	testAlgorithm(new MergeSort(ANZWERTE));
+	testAlgorithm(new QuickSort(ANZWERTE));
 	testAlgorithm(new SelectionSort(ANZWERTE));
+	testAlgorithm(new InsertionSort(ANZWERTE));
 	getchar();
 	return 0;
 }
-
-

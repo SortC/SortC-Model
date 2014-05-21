@@ -44,7 +44,7 @@ int QuickSort::partition(int a[], int left, int right)
 {
 	int pivot = a[left];
 	int pivotStelle = left;
-steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
+	steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
 	while (true)
 	{
 
