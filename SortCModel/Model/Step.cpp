@@ -29,6 +29,10 @@ string Step::toString(){
 			break;
 		case PIVOT: buffer << "Setze Pivotelement auf Stelle " << firstValue <<endl;
 			break;
+		case CPY: buffer << "Kopiere Stelle " << firstValue << " ins Hilfsarray nach Stelle " << secondValue << endl;
+			break;
+		case R_CPY: buffer << "Kopiere Stelle " << firstValue << " aus dem Hilfsarray nach Stelle " << secondValue << endl;
+			break;
 		default:
 			break;
 		}

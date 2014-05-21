@@ -47,25 +47,41 @@ void testAlgorithm(Algorithm* algo) {
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
 	cout << "No.\t Explanation" << endl;
-	int swap = 0;
-	int comp = 0;
-	int mark = 0;
+	int counter[6];
+	for(int i = 0; i < 6; i++){
+		counter[i] = 0;
+	}
 	do{
 		switch (currStep->getOperation())
 		{
 		case SWAP: {
 			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			swap++;
+			counter[SWAP]++;
 			break;
 			}
 		case COMP:{
 			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			comp++;
+			counter[COMP]++;
 			break;
 			}
 		case MARK:{
 			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
-			mark++;
+			counter[MARK]++;
+			break;
+			}
+		case PIVOT:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			counter[PIVOT]++;
+			break;
+			}
+		case CPY:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			counter[CPY]++;
+			break;
+			}
+		case R_CPY: {
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			counter[R_CPY]++;
 			break;
 			}
 		default:
@@ -84,9 +100,12 @@ void testAlgorithm(Algorithm* algo) {
 	cout << " |" << endl;
 	cout << "\nBenoetigte Schritte: " << algo->getNumbOfSteps()<<endl;
 	cout << "Nach Typ: " << endl;
-	cout << "MARK:\t" << mark << endl;
-	cout << "COMP:\t" << comp << endl;
-	cout << "SWAP:\t" << swap << endl;
+	cout << "MARK:\t" << counter[MARK] << endl;
+	cout << "COMP:\t" << counter[COMP] << endl;
+	cout << "SWAP:\t" << counter[SWAP] << endl;
+	cout << "PIVOT:\t" << counter[PIVOT] << endl;
+	cout << "CPY:\t" << counter[CPY] << endl;
+	cout << "R_CPY:\t" << counter[R_CPY] << endl;
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl << endl<< endl;
 	delete algo;
 }

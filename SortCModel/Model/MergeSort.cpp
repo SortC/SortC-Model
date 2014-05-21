@@ -42,6 +42,8 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 
 	while((h<=pivot)&&(j<=high))
 	{
+		newStep = new Step(h,j,Operation::COMP, ++numbOfSteps);
+		steps.push_back(newStep);
 		if(a[h]<=a[j])
 		{
 			b[i]=a[h];
@@ -49,6 +51,8 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 		}
 		else
 		{
+			newStep = new Step(h,j,Operation::SWAP, ++numbOfSteps);
+			steps.push_back(newStep);
 			b[i]=a[j];
 			j++;
 		}
@@ -70,5 +74,8 @@ void MergeSort::merge(int *a, int *b, int low, int pivot, int high)
 			i++;
 		}
 	}
-	for(k=low; k<=high; k++) a[k]=b[k];
+	for(k=low; k<=high; k++)
+	{
+		a[k]=b[k];
+	}
 }
