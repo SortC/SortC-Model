@@ -85,6 +85,7 @@
     <ClInclude Include="BubbleSort.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="MergeSort.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Step.h" />
     <ClInclude Include="targetver.h" />
@@ -96,6 +97,7 @@
     <ClCompile Include="BubbleSort.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Step.cpp" />

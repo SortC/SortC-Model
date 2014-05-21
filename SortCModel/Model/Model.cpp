@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "BubbleSort.h"
+#include "MergeSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>

@@ -1,22 +1,22 @@
 #include "Algorithm.h"
 #include <time.h>
 
-Algorithm::Algorithm(int* values, int numberOfValues) {
+Algorithm::Algorithm(int* values, int numbOfValues) {
 	this->startTuple = values;
 	this->currentTupel = values;
-	this->numbOfValues = numberOfValues;
+	this->numbOfValues = numbOfValues;
 	this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
 
 }
 
-Algorithm::Algorithm(int numberOfValues)
+Algorithm::Algorithm(int numbOfValues)
 {
-	this->numbOfValues = numberOfValues;
-	this->currentTupel = new int[numberOfValues];
-	this->startTuple = new int[numberOfValues];
+	this->numbOfValues = numbOfValues;
+	this->currentTupel = new int[numbOfValues];
+	this->startTuple = new int[numbOfValues];
 	srand(time(nullptr));
-	for (int i = 0; i < numberOfValues; i++)
+	for (int i = 0; i < numbOfValues; i++)
 	{
 		this->currentTupel[i] = rand() % 100;
 	}

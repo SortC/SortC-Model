@@ -33,6 +33,9 @@
     <ClInclude Include="BubbleSort.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +51,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="BubbleSort.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MergeSort.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
