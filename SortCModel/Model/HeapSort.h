@@ -4,7 +4,9 @@ class HeapSort :
 	public Algorithm
 {
 public:
-	HeapSort(void);
+	HeapSort(int* values, int numbOfValues);
+	HeapSort(int numbOfValues);
 	~HeapSort(void);
+	void sort() override;
 };
 

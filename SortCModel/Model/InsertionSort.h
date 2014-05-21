@@ -4,7 +4,9 @@ class InsertionSort :
 	public Algorithm
 {
 public:
-	InsertionSort(void);
+	InsertionSort(int* values, int numbOfValues);
+	InsertionSort(int numbOfValues);
 	~InsertionSort(void);
+	void sort() override;
 };
 
