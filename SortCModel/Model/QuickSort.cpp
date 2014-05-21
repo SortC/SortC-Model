@@ -22,7 +22,7 @@ void QuickSort::sort(){
 	Step *newStep;
 	newStep = new Step(left,right, Operation::COMP, ++numbOfSteps);
 	steps.push_back(newStep);  
-	
+
 	list.push_back(std::pair<int, int>(left, right));
 
 	while(list.size() != 0)
@@ -45,26 +45,41 @@ void QuickSort::sort(){
 int QuickSort::partition(int a[], int left, int right)
 {
 	int pivot = a[left];
+	int pivotStelle = left;
+steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
 	while (true)
 	{
-		
-		while (a[left] < pivot)
+
+		while (a[left] < pivot){
+			stringstream buffer;
+			buffer << "Vergleiche Pivot an Stelle " << pivotStelle <<" mit LZ an Stelle " << left << endl;
+			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			left++;
+		}
 
-		while (a[right] > pivot)
+		while (a[right] > pivot){
+			stringstream buffer;
+			buffer << "Vergleiche Pivot an Stelle " << pivotStelle <<" mit RZ an Stelle " << left << endl;
+			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			right--;
+		}
 
-		// Wenn linker Zeiger rechten Zeiger noch nicht erreicht hat tausche Werte
+
+		stringstream buffer;
+		buffer << "Prüfe ob Stelle von LZ (" << left << ") < als Stelle von RZ (" << right << ")" << endl;
+		steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
+
 		if (left < right)
 		{
-			//steps.push_back(new Step(
+			steps.push_back(new Step(left, right,Operation::SWAP, ++numbOfSteps));
 			int temp = a[right];
 			a[right] = a[left];
 			a[left] = temp;
-			
+
 		}
 		else
 		{
+			steps.push_back(new Step(right, 0, Operation::PIVOT, ++numbOfSteps));
 			return right;
 		}
 	}
