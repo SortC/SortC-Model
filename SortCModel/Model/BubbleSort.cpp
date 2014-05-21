@@ -1,12 +1,12 @@
 #include "BubbleSort.h"
 #include <iostream>
 
-BubbleSort::BubbleSort(int* values, int numberOfValues) : Algorithm(values,numberOfValues)
+BubbleSort::BubbleSort(int* values, int numbOfValues) : Algorithm(values,numbOfValues)
 {
 
 }
 
-BubbleSort::BubbleSort(int numberOfValues) : Algorithm(numberOfValues) 
+BubbleSort::BubbleSort(int numbOfValues) : Algorithm(numbOfValues) 
 {
 
 }

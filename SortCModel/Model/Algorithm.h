@@ -14,18 +14,18 @@ public:
 	* Konstruktor für voreingestellte Zahlenfolgen
 	* @param startTuple vordefiniertes Zahlentupel
 	*/
-	Algorithm(int* values, int numberOfValues);
+	Algorithm(int* values, int numbOfValues);
 
 	/**
 	* Konstruktor für zufällige Zahlenfolge
 	* @param anzValues Anzahl zu sortierender Werte
 	*/
-	Algorithm(int numberOfValues);
+	Algorithm(int numbOfValues);
 
 	/**
 	* Destruktor
 	*/
-	~Algorithm(void);
+	~Algorithm();
 
 	/** 
 	* Startet die Sortierung

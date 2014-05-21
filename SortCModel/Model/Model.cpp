@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "BubbleSort.h"
+#include "MergeSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>
@@ -44,15 +45,47 @@ void testAlgorithm(Algorithm* algo) {
 
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
-	cout << "No.\t Explanation" << endl; 
+	cout << "No.\t Explanation" << endl;
+	int swap = 0;
+	int comp = 0;
+	int mark = 0;
 	do{
-		if(currStep->getOperation() == Operation::SWAP){
-
+		switch (currStep->getOperation())
+		{
+		case SWAP: {
 			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			swap++;
+			break;
+			}
+		case COMP:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			comp++;
+			break;
+			}
+		case MARK:{
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			mark++;
+			break;
+			}
+		default:
+			break;
 		}
 		currStep = algo->getNextStep();
 	}while(currStep != NULL);
+
+	cout << "Endwerte: " ;
+	int *endTupel = algo->getCurrentTupel();
+	for (int i = 0; i < algo->getNumbOfValues(); i++)
+	{
+		cout << " | " << endTupel[i];
+	}
+
+	cout << " |" << endl;
 	cout << "\nBenoetigte Schritte: " << algo->getNumbOfSteps()<<endl;
+	cout << "Nach Typ: " << endl;
+	cout << "MARK:\t" << mark << endl;
+	cout << "COMP:\t" << comp << endl;
+	cout << "SWAP:\t" << swap << endl;
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl << endl<< endl;
 	delete algo;
 }
@@ -64,7 +97,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// Test des BubbleSort
 	testAlgorithm(new BubbleSort(ANZWERTE));
-	testAlgorithm(new BubbleSort(ANZWERTE));
+	testAlgorithm(new MergeSort(ANZWERTE));
 	getchar();
 	return 0;
 }
