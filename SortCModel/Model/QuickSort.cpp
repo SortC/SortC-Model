@@ -44,6 +44,10 @@ int QuickSort::partition(int a[], int left, int right)
 {
 	int pivot = a[left];
 	int pivotStelle = left;
+
+	stringstream buffer;
+	buffer << "Betrachte Bereich von [" << left <<"] bis [" << right << "]" << endl;
+	steps.push_back(new Step(left, right, Operation::MARK, ++numbOfSteps, buffer.str()));
 	steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
 	while (true)
 	{
@@ -57,7 +61,7 @@ int QuickSort::partition(int a[], int left, int right)
 
 		while (a[right] > pivot){
 			stringstream buffer;
-			buffer << "Vergleiche Pivot [" << pivotStelle <<"] mit RZ[" << left <<"]" << endl;
+			buffer << "Vergleiche Pivot [" << pivotStelle <<"] mit RZ[" << right <<"]" << endl;
 			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			right--;
 		}
