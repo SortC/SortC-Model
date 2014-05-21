@@ -48,7 +48,7 @@
     <ClInclude Include="BucketSort.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="SelecetionSort.h">
+    <ClInclude Include="SelectionSort.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClCompile Include="BucketSort.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="SelecetionSort.cpp">
+    <ClCompile Include="SelectionSort.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-static enum Operation {SWAP, COMP, MARK, PIVOT, CPY, R_CPY };
+static enum Operation {SWAP, COMP, MARK, PIVOT, CPY, R_CPY, MIN };
 class Step
 {
 public:

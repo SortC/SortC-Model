@@ -13,8 +13,10 @@
 #include <random>
 
 
-#define ANZWERTE 5
+#define ANZWERTE 5  
 #define LINEWIDTH 40
+#include "InsertionSort.h"
+#include "SelectionSort.h"
 const char FILLCHAR = '-';
 
 using namespace std;
@@ -47,8 +49,8 @@ void testAlgorithm(Algorithm* algo) {
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
 	cout << "No.\t Explanation" << endl;
-	int counter[6];
-	for(int i = 0; i < 6; i++){
+	int counter[7];
+	for(int i = 0; i < 7; i++){
 		counter[i] = 0;
 	}
 	do{
@@ -84,6 +86,11 @@ void testAlgorithm(Algorithm* algo) {
 			counter[R_CPY]++;
 			break;
 			}
+		case MIN: {
+			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			counter[MIN]++;
+			break;
+			}
 		default:
 			break;
 		}
@@ -106,6 +113,7 @@ void testAlgorithm(Algorithm* algo) {
 	cout << "PIVOT:\t" << counter[PIVOT] << endl;
 	cout << "CPY:\t" << counter[CPY] << endl;
 	cout << "R_CPY:\t" << counter[R_CPY] << endl;
+	cout << "Min:\t" << counter[MIN] << endl;
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl << endl<< endl;
 	delete algo;
 }
@@ -116,9 +124,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << endl;
 
 	// Test des BubbleSort
-	testAlgorithm(new BubbleSort(ANZWERTE));
-	testAlgorithm(new MergeSort(ANZWERTE));
-	testAlgorithm(new QuickSort(ANZWERTE));
+	//testAlgorithm(new BubbleSort(ANZWERTE));
+	//testAlgorithm(new MergeSort(ANZWERTE));
+	//testAlgorithm(new QuickSort(ANZWERTE));
+	testAlgorithm(new InsertionSort(ANZWERTE));
+	testAlgorithm(new SelectionSort(ANZWERTE));
 	getchar();
 	return 0;
 }

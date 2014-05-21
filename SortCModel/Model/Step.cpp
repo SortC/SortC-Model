@@ -33,6 +33,8 @@ string Step::toString(){
 			break;
 		case R_CPY: buffer << "Kopiere Stelle " << firstValue << " aus dem Hilfsarray nach Stelle " << secondValue << endl;
 			break;
+		case MIN: buffer << "Setzt das Element an Stelle " << firstValue << " als kleinstes Element" << endl;
+			break;
 		default:
 			break;
 		}
