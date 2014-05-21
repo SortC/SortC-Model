@@ -21,6 +21,10 @@ using namespace std;
 
 
 
+void printStepLine(int num, string operation, string explanation){
+	cout << "[" <<num << "] \t " << operation << "\t " << explanation;
+}
+
 /**
  * Testet einen Algorithmus
  * @param algo Algorithmus
@@ -36,17 +40,17 @@ void testAlgorithm(Algorithm* algo) {
 		cout << " | " << startTuple[i];
 	}
 	cout << " |" << endl;
-	/* clock_t begin = clock(); */
+	clock_t begin = clock();
 	
 	algo->sort();
 
-	/*clock_t end = clock();
-	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC / 1000;
-	cout <<"Passed time: "<< elapsed_secs << " milliseconds" << endl<< endl;*/
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) ;
+	cout <<"Passed time: "<< elapsed_secs << " milliseconds" << endl<< endl;
 
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
-	cout << "No.\t Explanation" << endl;
+	cout << "No.\t Oper. \t Explanation" << endl;
 	int counter[6];
 	for(int i = 0; i < 6; i++){
 		counter[i] = 0;
@@ -55,32 +59,32 @@ void testAlgorithm(Algorithm* algo) {
 		switch (currStep->getOperation())
 		{
 		case SWAP: {
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "SWAP" ,currStep->toString());
 			counter[SWAP]++;
 			break;
 			}
 		case COMP:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "COMP" ,currStep->toString());
 			counter[COMP]++;
 			break;
 			}
 		case MARK:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "MARK" ,currStep->toString());
 			counter[MARK]++;
 			break;
 			}
 		case PIVOT:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "PIVOT" ,currStep->toString());
 			counter[PIVOT]++;
 			break;
 			}
 		case CPY:{
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "CPY" ,currStep->toString());
 			counter[CPY]++;
 			break;
 			}
 		case R_CPY: {
-			cout << "[" <<currStep->getNumber() << "] \t " << currStep->toString();
+			printStepLine(currStep->getNumber(), "R_CPY" ,currStep->toString());
 			counter[R_CPY]++;
 			break;
 			}
@@ -90,7 +94,7 @@ void testAlgorithm(Algorithm* algo) {
 		currStep = algo->getNextStep();
 	}while(currStep != NULL);
 
-	cout << "Endwerte: " ;
+	cout << "\nEndwerte: " ;
 	int *endTupel = algo->getCurrentTupel();
 	for (int i = 0; i < algo->getNumbOfValues(); i++)
 	{
