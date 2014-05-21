@@ -4,7 +4,9 @@ class SelecetionSort :
 	public Algorithm
 {
 public:
-	SelecetionSort(void);
+	SelecetionSort(int* values, int numbOfValues);
+	SelecetionSort(int numbOfValues);
 	~SelecetionSort(void);
+	void sort() override;
 };
 
