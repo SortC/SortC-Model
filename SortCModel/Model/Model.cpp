@@ -15,7 +15,7 @@
 #include <random>
 
 
-#define ANZWERTE 5
+#define ANZWERTE 10
 #define LINEWIDTH 40
 const char FILLCHAR = '-';
 
@@ -35,18 +35,30 @@ void printStepLine(int num, string operation, string explanation){
 void testAlgorithm(Algorithm* algo) {
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << "" <<  endl;
 	cout << typeid(*algo).name() << endl << endl;
-	cout << "Ausgangswerte: " ;
-	int *startTuple = algo->getCurrentTupel();
-	for (int i = 0; i < algo->getNumbOfValues(); i++)
-	{
-		cout << " | " << startTuple[i];
-	}
-	cout << " |" << endl;
+
 	clock_t begin = clock();
 
 	algo->sort();
 
 	clock_t end = clock();
+
+	cout << "Ausgangswerte: \t" ;
+	int *startTuple = algo->getStartTuple();
+	for (int i = 0; i < algo->getNumbOfValues(); i++)
+	{
+		cout << " | " << startTuple[i];
+	}
+	cout << " |" << endl;
+
+	cout << "\nEndwerte: \t" ;
+	int *endTupel = algo->getCurrentTuple();
+	for (int i = 0; i < algo->getNumbOfValues(); i++)
+	{
+		cout << " | " << endTupel[i];
+	}
+
+	cout << " |" << endl << endl;
+
 	double elapsed_secs = double(end - begin) ;
 	cout <<"Passed time: "<< elapsed_secs << " milliseconds" << endl<< endl;
 
@@ -57,7 +69,7 @@ void testAlgorithm(Algorithm* algo) {
 	for(int i = 0; i < 7; i++){
 		counter[i] = 0;
 	}
-	do{
+	/*do{
 		switch (currStep->getOperation())
 		{
 		case SWAP:
@@ -106,16 +118,8 @@ void testAlgorithm(Algorithm* algo) {
 			break;
 		}
 		currStep = algo->getNextStep();
-	}while(currStep != NULL);
+	}while(currStep != NULL);*/
 
-	cout << "\nEndwerte: " ;
-	int *endTupel = algo->getCurrentTupel();
-	for (int i = 0; i < algo->getNumbOfValues(); i++)
-	{
-		cout << " | " << endTupel[i];
-	}
-
-	cout << " |" << endl;
 	cout << "\nBenoetigte Schritte: " << algo->getNumbOfSteps()<<endl;
 	cout << "Nach Typ: " << endl;
 	cout << "MARK:\t" << counter[MARK] << endl;
@@ -135,11 +139,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	cout << setw(LINEWIDTH) << setfill(FILLCHAR) << endl;
 
 	// Test des BubbleSort
-	testAlgorithm(new BubbleSort(ANZWERTE));
+	//testAlgorithm(new BubbleSort(ANZWERTE));
 	testAlgorithm(new MergeSort(ANZWERTE));
 	testAlgorithm(new QuickSort(ANZWERTE));
-	testAlgorithm(new SelectionSort(ANZWERTE));
-	testAlgorithm(new InsertionSort(ANZWERTE));
+	//testAlgorithm(new SelectionSort(ANZWERTE));
+	//testAlgorithm(new InsertionSort(ANZWERTE));
 	getchar();
 	return 0;
 }

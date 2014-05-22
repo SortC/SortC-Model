@@ -29,7 +29,7 @@ void QuickSort::sort(){
 		right = list.back().second;
 		list.pop_back();
 
-		int pivot = partition(currentTupel, left, right);   
+		int pivot = partition(currentTuple, left, right);   
 
 		std::pair<int,int> p;
 		if(pivot > 1)
@@ -68,7 +68,7 @@ int QuickSort::partition(int a[], int left, int right)
 
 
 		stringstream buffer;
-		buffer << "Prüfe ob LZ[" << left << "] <  RZ[" << right << "]" << endl;
+		buffer << "Pruefe ob LZ[" << left << "] <  RZ[" << right << "]" << endl;
 		steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 
 		if (left < right)
@@ -79,7 +79,7 @@ int QuickSort::partition(int a[], int left, int right)
 			a[left] = temp;
 
 		}
-		else
+		else 
 		{
 			steps.push_back(new Step(right, 0, Operation::PIVOT, ++numbOfSteps));
 			return right;

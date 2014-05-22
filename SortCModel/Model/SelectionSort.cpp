@@ -20,26 +20,27 @@ void SelectionSort::sort()
 	Step* newStep;
 
 	for( i = 0; i < numbOfValues - 1; i++)
-    {
-		newStep = new Step(i+1, 0, Operation::MIN, ++numbOfSteps);
+	{
+		newStep = new Step(i, 0, Operation::MIN, ++numbOfSteps);
 		steps.push_back(newStep);
-        min = i;
+		min = i;
 
-        for( j = i+1; j < numbOfValues; j++)
-        {
-			newStep = new Step(min+1,j+1, Operation::COMP, ++numbOfSteps);
+		for( j = i+1; j < numbOfValues; j++)
+		{
+			newStep = new Step(min,j, Operation::COMP, ++numbOfSteps);
 			steps.push_back(newStep);
-            if( currentTupel[j] < currentTupel[min])
+			if( currentTuple[j] < currentTuple[min])
 			{
-				steps.push_back(new Step(j+1, 0, Operation::MIN, ++numbOfSteps));
-                min = j;
+				steps.push_back(new Step(j, 0, Operation::MIN, ++numbOfSteps));
+				min = j;
 			}
-        }
-		
-		newStep = new Step(i+1, min+1, Operation::SWAP, ++numbOfSteps);
-		steps.push_back(newStep);
-        tmp = currentTupel[min];
-        currentTupel[min] = currentTupel[i];
-        currentTupel[i] = tmp;
-    }
+		}
+		if(i != min){
+			newStep = new Step(i, min, Operation::SWAP, ++numbOfSteps);
+			steps.push_back(newStep);
+			tmp = currentTuple[min];
+			currentTuple[min] = currentTuple[i];
+			currentTuple[i] = tmp;
+		}
+	}
 }

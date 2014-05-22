@@ -27,13 +27,13 @@ void BubbleSort::sort()
 		{
 			newStep = new Step(j,j+1, Operation::COMP, ++numbOfSteps);
 			steps.push_back(newStep);
-			if (currentTupel[j] > currentTupel[j + 1])
+			if (currentTuple[j] > currentTuple[j + 1])
 			{
 				newStep = new Step(j,j+1, Operation::SWAP, ++numbOfSteps);
 				steps.push_back(newStep);
-				tmp = currentTupel[j];
-				currentTupel[j] = currentTupel[j + 1];
-				currentTupel[j + 1] = tmp;
+				tmp = currentTuple[j];
+				currentTuple[j] = currentTuple[j + 1];
+				currentTuple[j + 1] = tmp;
 			}
 		}
 	}

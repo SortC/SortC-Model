@@ -7,6 +7,6 @@ public:
 	BubbleSort(int* values, int numbOfValues);
 	BubbleSort(int numbOfValues);
 	~BubbleSort(void);
-	void sort();
+	void sort() override;
 };
 

@@ -23,15 +23,15 @@ void InsertionSort::sort()
 	{
 		j = i;
  
-		newStep = new Step(i,i+1, Operation::COMP, ++numbOfSteps);
+		newStep = new Step(j-1,j, Operation::COMP, ++numbOfSteps);
 		steps.push_back(newStep);
-		while (j > 0 && currentTupel[j - 1] > currentTupel[j]) 
+		while (j > 0 && currentTuple[j - 1] > currentTuple[j]) 
 		{
-			newStep = new Step(j,j+1, Operation::SWAP, ++numbOfSteps);
+			newStep = new Step(j-1,j, Operation::SWAP, ++numbOfSteps);
 			steps.push_back(newStep);
-			tmp = currentTupel[j];
-			currentTupel[j] = currentTupel[j - 1];
-			currentTupel[j - 1] = tmp;
+			tmp = currentTuple[j];
+			currentTuple[j] = currentTuple[j - 1];
+			currentTuple[j - 1] = tmp;
 			j--;
 		}
 	}

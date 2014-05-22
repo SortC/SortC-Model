@@ -21,19 +21,19 @@ string Step::toString(){
 		stringstream buffer;
 		switch (op)
 		{
-		case SWAP: buffer << "Tausche Stelle " << firstValue << " mit Stelle " << secondValue << endl;
+		case SWAP: buffer << "Tausche \t [" << firstValue << "] mit [" << secondValue << "]"<< endl;
 			break;
-		case COMP: buffer << "Vergleiche Stelle " << firstValue << " mit Stelle " << secondValue << endl;
+		case COMP: buffer << "Vergleiche \t [" << firstValue << "] mit [" << secondValue << "]" << endl;
 			break;
-		case MARK: buffer << "Betrachte Bereich von Stelle " << firstValue << " bis Stelle " << secondValue << endl;
+		case MARK: buffer << "Betrachte \t [" << firstValue << "] bis [" << secondValue << "]" << endl;
 			break;
-		case PIVOT: buffer << "Setze Pivotelement auf Stelle " << firstValue <<endl;
+		case PIVOT: buffer << "Setze Pivotelement auf \t [" << firstValue<< "]"  <<endl;
 			break;
-		case CPY: buffer << "Kopiere Stelle " << firstValue << " ins Hilfsarray nach Stelle " << secondValue << endl;
+		case CPY: buffer << "Kopiere \t [" << firstValue << "] ins Hilfsarray nach [" << secondValue << "]" << endl;
 			break;
-		case R_CPY: buffer << "Kopiere Stelle " << firstValue << " aus dem Hilfsarray nach Stelle " << secondValue << endl;
+		case R_CPY: buffer << "Kopiere \t [" << firstValue << "] aus dem Hilfsarray [" << secondValue << "]" << endl;
 			break;
-		case MIN: buffer << "Setzt das Element an Stelle " << firstValue << " als kleinstes Element" << endl;
+		case MIN: buffer << "Setzt\t \t [" << firstValue << "] als kleinstes Element" << endl;
 			break;
 		default:
 			break;

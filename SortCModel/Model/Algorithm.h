@@ -47,15 +47,15 @@ public:
 	/**
 	* Getter-Funktionen
 	*/
-	int* getCurrentTupel(){ return currentTupel; };
-	int* getStartTupel(){ return startTuple; };
+	int* getCurrentTuple(){ return currentTuple; };
+	int* getStartTuple(){ return startTuple; };
 	int getNumbOfCurrentStep(){ return numbOfCurrentStep; };
 	int getNumbOfSteps(){ return numbOfSteps; };
 	int getNumbOfValues(){ return numbOfValues; };
 
 protected:
 	int* startTuple;
-	int* currentTupel;
+	int* currentTuple;
 	vector<Step*> steps;
 	int numbOfValues;
 	int numbOfSteps;

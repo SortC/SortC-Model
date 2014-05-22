@@ -16,7 +16,7 @@ MergeSort::~MergeSort(void)
 }
 
 void MergeSort::sort(){
-	merge_sort(currentTupel,helperArray,0,numbOfValues-1);
+	merge_sort(currentTuple,helperArray,0,numbOfValues-1);
 }
 
 void MergeSort::merge_sort(int *a, int*b, int low, int high)
