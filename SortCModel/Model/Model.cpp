@@ -38,7 +38,7 @@ void testAlgorithm(Algorithm* algo) {
 
 	clock_t begin = clock();
 
-	algo->sort();
+	algo->doSort();
 
 	clock_t end = clock();
 
@@ -69,7 +69,7 @@ void testAlgorithm(Algorithm* algo) {
 	for(int i = 0; i < 7; i++){
 		counter[i] = 0;
 	}
-	/*do{
+	do{
 		switch (currStep->getOperation())
 		{
 		case SWAP:
@@ -118,7 +118,7 @@ void testAlgorithm(Algorithm* algo) {
 			break;
 		}
 		currStep = algo->getNextStep();
-	}while(currStep != NULL);*/
+	}while(currStep != NULL);
 
 	cout << "\nBenoetigte Schritte: " << algo->getNumbOfSteps()<<endl;
 	cout << "Nach Typ: " << endl;
@@ -140,10 +140,17 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// Test des BubbleSort
 	//testAlgorithm(new BubbleSort(ANZWERTE));
-	testAlgorithm(new MergeSort(ANZWERTE));
-	testAlgorithm(new QuickSort(ANZWERTE));
-	//testAlgorithm(new SelectionSort(ANZWERTE));
-	//testAlgorithm(new InsertionSort(ANZWERTE));
+	int zahlen[ANZWERTE];
+
+	for (int i = 0 ; i<ANZWERTE;i++){
+		zahlen[i] = ANZWERTE - i;
+	}
+
+	testAlgorithm(new MergeSort(zahlen,ANZWERTE));
+	testAlgorithm(new QuickSort(zahlen,ANZWERTE));
+	testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
+	testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
+	testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
 	getchar();
 	return 0;
 }

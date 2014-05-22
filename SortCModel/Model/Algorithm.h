@@ -30,7 +30,7 @@ public:
 	/** 
 	* Startet die Sortierung
 	*/
-	virtual void sort();
+	void doSort();
 
 	/** 
 	* Gibt Pointer auf den nächsten Schritt aus der Sortierung zurück
@@ -54,6 +54,8 @@ public:
 	int getNumbOfValues(){ return numbOfValues; };
 
 protected:
+	virtual void sort();
+	bool isSorted;
 	int* startTuple;
 	int* currentTuple;
 	vector<Step*> steps;

@@ -12,6 +12,7 @@ Algorithm::Algorithm(int* values, int numbOfValues) {
 	this->numbOfValues = numbOfValues;
 	this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
+	this->isSorted = false;
 }
 
 Algorithm::Algorithm(int numbOfValues)
@@ -28,6 +29,7 @@ Algorithm::Algorithm(int numbOfValues)
 
 	this->numbOfCurrentStep = 0;
 	this->numbOfSteps = 0;
+	this->isSorted = false;
 }
 
 Algorithm::~Algorithm(void)
@@ -39,12 +41,18 @@ Algorithm::~Algorithm(void)
 
 void Algorithm::sort()
 {
+}
 
+void Algorithm::doSort(){
+	if(!isSorted){
+		sort();
+		isSorted= true;
+	}
 }
 
 Step* Algorithm::getNextStep() {
 	if(numbOfSteps == 0)
-		sort();
+		doSort();
 	if (numbOfCurrentStep < numbOfSteps)
 	{
 		return steps[numbOfCurrentStep++];
