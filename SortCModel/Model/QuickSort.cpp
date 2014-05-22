@@ -46,42 +46,49 @@ int QuickSort::partition(int a[], int left, int right)
 	int pivotStelle = left;
 
 	stringstream buffer;
-	buffer << "Betrachte Bereich von [" << left <<"] bis [" << right << "]" << endl;
+	buffer << "Betrachte Bereich   [" << left <<"] bis  [" << right << "]" << endl;
 	steps.push_back(new Step(left, right, Operation::MARK, ++numbOfSteps, buffer.str()));
-	steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps));
+	stringstream buffer2;
+	buffer2 << "Setze Pivot auf\t      [" << right << "]" << endl;
+	steps.push_back(new Step(pivotStelle, 0, Operation::PIVOT, ++numbOfSteps, buffer2.str() ));
 	while (true)
 	{
 
 		while (a[left] < pivot){
 			stringstream buffer;
-			buffer << "Vergleiche Pivot[" << pivotStelle <<"] mit LZ[" << left << "]" << endl;
+			buffer << "Pruefe ob \tPivot[" << pivotStelle <<"]  < LZ[" << left << "]" << endl;
 			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			left++;
 		}
 
 		while (a[right] > pivot){
 			stringstream buffer;
-			buffer << "Vergleiche Pivot [" << pivotStelle <<"] mit RZ[" << right <<"]" << endl;
+			buffer << "Pruefe ob \tPivot[" << pivotStelle <<"]  > RZ[" << right <<"]" << endl;
 			steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 			right--;
 		}
 
 
 		stringstream buffer;
-		buffer << "Pruefe ob LZ[" << left << "] <  RZ[" << right << "]" << endl;
+		buffer << "Pruefe ob \tLZ   [" << left << "]  < RZ[" << right << "]" << endl;
 		steps.push_back(new Step(pivotStelle, left,Operation::COMP, ++numbOfSteps, buffer.str() ));
 
 		if (left < right)
 		{
-			steps.push_back(new Step(left, right,Operation::SWAP, ++numbOfSteps));
+			stringstream buffer;
+			buffer << "Tausche \t     [" << left << "] mit  [" << right << "]" << endl;
+			steps.push_back(new Step(left, right,Operation::SWAP, ++numbOfSteps, buffer.str() ));
 			int temp = a[right];
 			a[right] = a[left];
 			a[left] = temp;
+			left++;
 
 		}
 		else 
 		{
-			steps.push_back(new Step(right, 0, Operation::PIVOT, ++numbOfSteps));
+			stringstream buffer;
+			buffer << "Setze Pivot auf\t      [" << right << "]" << endl;
+			//steps.push_back(new Step(right, 0, Operation::PIVOT, ++numbOfSteps, buffer.str() ));
 			return right;
 		}
 	}

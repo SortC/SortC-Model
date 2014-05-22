@@ -15,7 +15,7 @@
 #include <random>
 
 
-#define ANZWERTE 10
+#define ANZWERTE 5
 #define LINEWIDTH 40
 const char FILLCHAR = '-';
 
@@ -145,6 +145,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	for (int i = 0 ; i<ANZWERTE;i++){
 		zahlen[i] = ANZWERTE - i;
 	}
+	zahlen[3]= zahlen[1];
 
 	testAlgorithm(new MergeSort(zahlen,ANZWERTE));
 	testAlgorithm(new QuickSort(zahlen,ANZWERTE));
