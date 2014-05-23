@@ -19,7 +19,7 @@ public:
 
 	/**
 	* Liefert explanation zurück
-	* erstellt eine Explanation aus den vorliegenden Informationen, falls keine Existiert
+	* erstellt eine Explanation aus den vorliegenden Informationen, falls keine existiert
 	*/
 	string toString();
 
