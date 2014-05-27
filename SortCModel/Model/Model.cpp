@@ -7,6 +7,7 @@
 #include "QuickSort.h"
 #include "SelectionSort.h"
 #include "InsertionSort.h"
+#include "BucketSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>
@@ -23,8 +24,34 @@ using namespace std;
 
 
 
-void printStepLine(int num, string operation, string explanation){
+void printStepLine(int num, string operation, string explanation)
+{
 	cout << "[" <<num << "] \t " << operation << "\t " << explanation;
+}
+
+void printBuckets(queue<int> *buckets, int numbOfValues)
+{
+	cout << "print Buckets" << endl;
+	for ( int i = 0; i < numbOfValues; i++ )
+    {
+		cout << buckets[i].size()<<endl;
+        if (buckets[i].size() == 1) 
+		{
+			cout << "A" << endl;
+            cout << buckets[i].front() << " | ";
+            buckets[i].pop();
+        }
+        if (buckets[i].size() > 1)
+        {
+			cout << "B" << endl;
+            while (!buckets[i].empty())
+            {
+                cout << buckets[i].front() << " ";
+                buckets[i].pop();
+            }
+            cout << "| ";
+        }
+    }
 }
 
 /**
@@ -50,6 +77,10 @@ void testAlgorithm(Algorithm* algo) {
 	}
 	cout << " |" << endl;
 
+	BucketSort* buck = static_cast <BucketSort*> (algo);
+
+	printBuckets(buck->getBuckets(), buck->getNumbOfValues());
+	
 	cout << "\nEndwerte: \t" ;
 	int *endTupel = algo->getCurrentTuple();
 	for (int i = 0; i < algo->getNumbOfValues(); i++)
@@ -147,11 +178,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	zahlen[3]= zahlen[1];
 
-	testAlgorithm(new MergeSort(zahlen,ANZWERTE));
-	testAlgorithm(new QuickSort(zahlen,ANZWERTE));
-	testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
-	testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
-	testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
+	//testAlgorithm(new MergeSort(zahlen,ANZWERTE));
+	//testAlgorithm(new QuickSort(zahlen,ANZWERTE));
+	//testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
+	//testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
+	//testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
+	testAlgorithm(new BucketSort(zahlen,ANZWERTE));
 	getchar();
 	return 0;
 }
