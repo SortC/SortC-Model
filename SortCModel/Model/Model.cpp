@@ -32,26 +32,29 @@ void printStepLine(int num, string operation, string explanation)
 void printBuckets(queue<int> *buckets, int numbOfValues)
 {
 	cout << "print Buckets" << endl;
+	cout << "| ";
 	for ( int i = 0; i < numbOfValues; i++ )
-    {
-		cout << buckets[i].size()<<endl;
-        if (buckets[i].size() == 1) 
+	{
+		if (buckets[i].size() == 0){
+			cout << " | ";
+		}
+		if (buckets[i].size() == 1) 
 		{
-			cout << "A" << endl;
-            cout << buckets[i].front() << " | ";
-            buckets[i].pop();
-        }
-        if (buckets[i].size() > 1)
-        {
-			cout << "B" << endl;
-            while (!buckets[i].empty())
-            {
-                cout << buckets[i].front() << " ";
-                buckets[i].pop();
-            }
-            cout << "| ";
-        }
-    }
+			//cout << "A" << endl;
+			cout << buckets[i].front() << " | ";
+			buckets[i].pop();
+		}
+		if (buckets[i].size() > 1)
+		{
+			//cout << "B" << endl;
+			while (!buckets[i].empty())
+			{
+				cout << buckets[i].front() << " ";
+				buckets[i].pop();
+			}
+			cout << "| ";
+		}
+	}
 }
 
 /**
@@ -79,8 +82,8 @@ void testAlgorithm(Algorithm* algo) {
 
 	BucketSort* buck = static_cast <BucketSort*> (algo);
 
-	printBuckets(buck->getBuckets(), buck->getNumbOfValues());
-	
+	printBuckets(buck->getFilledBuckets(), buck->getNumbOfValues());
+
 	cout << "\nEndwerte: \t" ;
 	int *endTupel = algo->getCurrentTuple();
 	for (int i = 0; i < algo->getNumbOfValues(); i++)
@@ -183,7 +186,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	//testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
 	//testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
 	//testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
-	testAlgorithm(new BucketSort(zahlen,ANZWERTE));
+	testAlgorithm(new BucketSort(ANZWERTE));//zahlen,ANZWERTE));
 	getchar();
 	return 0;
 }

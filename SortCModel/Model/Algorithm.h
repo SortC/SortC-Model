@@ -55,6 +55,7 @@ public:
 
 protected:
 	virtual void sort();
+	int maxValue;
 	bool isSorted;
 	int* startTuple;
 	int* currentTuple;

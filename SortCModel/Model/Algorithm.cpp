@@ -4,10 +4,13 @@
 Algorithm::Algorithm(int* values, int numbOfValues) {
 	this->currentTuple = new int[numbOfValues];
 	this->startTuple = new int[numbOfValues];
+	maxValue = 0;
 	for (int i = 0; i < numbOfValues; i++)
 	{
 		this->currentTuple[i] = values[i];
 		this->startTuple[i] = values[i];
+		if(maxValue < values[i])
+			maxValue = values[i];
 	}
 	this->numbOfValues = numbOfValues;
 	this->numbOfCurrentStep = 0;
@@ -21,9 +24,10 @@ Algorithm::Algorithm(int numbOfValues)
 	this->currentTuple = new int[numbOfValues];
 	this->startTuple = new int[numbOfValues];
 	srand(time(nullptr));
+	maxValue = 100;
 	for (int i = 0; i < numbOfValues; i++)
 	{
-		this->currentTuple[i] = rand() % 100;
+		this->currentTuple[i] = rand() % maxValue;
 		this->startTuple[i] = this->currentTuple[i];
 	}
 

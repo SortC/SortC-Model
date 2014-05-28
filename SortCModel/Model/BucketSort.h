@@ -10,11 +10,11 @@ public:
 	BucketSort(int numbOfValues);
 	~BucketSort(void);
 	void sort() override;
-	queue<int>* getBuckets(){return buckets;};
+	queue<int>* getFilledBuckets(){return filledBuckets;};
 protected:
 	int hash(int n);
-	void doinsertionsortforbucket(int* input, int len);
-
+	void doInsertionSortForBucket(int* input, int len);
 	queue<int> *buckets;
+	queue<int> *filledBuckets;
 };
 
