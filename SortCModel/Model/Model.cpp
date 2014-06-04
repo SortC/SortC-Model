@@ -25,11 +25,6 @@ using namespace std;
 
 
 
-void printStepLine(int num, string operation, string explanation)
-{
-	cout << "[" <<num << "] \t " << operation << "\t " << explanation;
-}
-
 void printBuckets(queue<int> *buckets, int numbOfValues)
 {
 	cout << "print Buckets" << endl;
@@ -99,53 +94,47 @@ void testAlgorithm(Algorithm* algo) {
 
 	// Ausgabe der Schritte
 	Step* currStep = algo->getNextStep(); 
-	cout << "No.\t Oper. \t Explanation" << endl;
+	cout <<left<< setfill(' ') <<setw(7) << "No." << setw(7)<< "Oper." << "Explanation" << endl;
 	int counter[7];
 	for(int i = 0; i < 7; i++){
 		counter[i] = 0;
 	}
 	do{
+		cout << currStep->toString();
 		switch (currStep->getOperation())
 		{
 		case SWAP:
 			{
-				printStepLine(currStep->getNumber(), "SWAP" ,currStep->toString());
 				counter[SWAP]++;
 				break;
 			}
 		case COMP:
 			{
-				printStepLine(currStep->getNumber(), "COMP" ,currStep->toString());
 				counter[COMP]++;
 				break;
 			}
 		case MARK:
 			{
-				printStepLine(currStep->getNumber(), "MARK" ,currStep->toString());
 				counter[MARK]++;
 				break;
 			}
 		case PIVOT:
 			{
-				printStepLine(currStep->getNumber(), "PIVOT" ,currStep->toString());
 				counter[PIVOT]++;
 				break;
 			}
 		case CPY:
 			{
-				printStepLine(currStep->getNumber(), "CPY" ,currStep->toString());
 				counter[CPY]++;
 				break;
 			}
 		case R_CPY: 
 			{
-				printStepLine(currStep->getNumber(), "R_CPY" ,currStep->toString());
 				counter[R_CPY]++;
 				break;
 			}
 		case MIN:
 			{
-				printStepLine(currStep->getNumber(), "MIN", currStep->toString());
 				counter[MIN]++;
 				break;
 			}
@@ -181,14 +170,81 @@ int _tmain(int argc, _TCHAR* argv[])
 		zahlen[i] = ANZWERTE - i;
 	}
 	zahlen[3]= zahlen[1];
-
-	//testAlgorithm(new MergeSort(zahlen,ANZWERTE));
-	//testAlgorithm(new QuickSort(zahlen,ANZWERTE));
-	//testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
-	//testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
-	//testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
-	//testAlgorithm(new BucketSort(ANZWERTE));//zahlen,ANZWERTE));
+	const int width = 50;
+	cout << setw(width) << setfill('#') << "" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Beginne Testreihe 1" << "#" << endl;
+	cout << "#" << setw(width -1) << setfill(' ') << right << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Testfaelle:" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  1. Klasse: Algorithm" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    a. Konstruktor mit vord. Tupel" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    b. getNextStep() - Methode" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  2. Klasse: Erben von Algorithm" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    a. sort() - Methode" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    b. Sortierung doppelter Werte" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  3. Klasse: Step" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    a. toString() - Methode" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    b. Konstruktoren" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    c. Attribute" << "#" << endl;
+	cout << "#" << setw(width -1) << setfill(' ') << right << "#" << endl;
+	cout << setw(width) << setfill('#')<<"" << endl;
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new MergeSort(zahlen,ANZWERTE));
+	testAlgorithm(new QuickSort(zahlen,ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
+	testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
+	testAlgorithm(new BucketSort(zahlen,ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
 	testAlgorithm(new HeapSort(zahlen, ANZWERTE));
+	
+	
+	cout << setw(width) << setfill('#') << "" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Ende von Testreihe 1" << "#" << endl;
+	cout << setw(width) << setfill('#') << "" << endl;
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	cout << setw(width) << setfill('#') << "" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Beginne Testreihe 2" << "#" << endl;
+	cout << "#" << setw(width -1) << setfill(' ') << right << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Testfaelle:" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  1. Klasse: Algorithm" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#    a. Konstruktor mit Zufallswerten" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  2. Klasse: Erben von Algorithm (WIE ZUVOR)" << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  3. Klasse: Step (WIE ZUVOR)" << "#" << endl;
+	cout << "#" << setw(width -1) << setfill(' ') << right << "#" << endl;
+	cout << setw(width) << setfill('#')<<"" << endl;
+		cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new MergeSort(ANZWERTE));
+	testAlgorithm(new QuickSort(ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new SelectionSort(ANZWERTE));
+	testAlgorithm(new InsertionSort(ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new BubbleSort(ANZWERTE));
+	testAlgorithm(new BucketSort(ANZWERTE));
+	cout << "\nBitte beliebige Taste druecken zum fortfahren" << endl;
+	getchar();
+	testAlgorithm(new HeapSort(ANZWERTE));
+	
+		cout << setw(width) << setfill('#') << "" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Ende von Testreihe 2" << "#" << endl;
+	cout << setw(width) << setfill('#') << "" <<"\n" << endl;
+
+	cout << setw(width) << setfill('#') << "" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  Alle Tests abgeschlossen" << "#" << endl;
+	cout << "#" << setw(width -1) << setfill(' ') << right << "#" << endl;
+	cout << left <<setfill(' ') << setw(width-1) <<"#  E N D E" << "#" << endl;
+	cout << setw(width) << setfill('#') << "" << endl;
+
 	getchar();
 	return 0;
 }

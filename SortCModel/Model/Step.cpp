@@ -7,7 +7,7 @@ Step::Step(int firstValue, int secondValue, Operation operation, unsigned int nu
 	this->number = number;
 	this->explanation = explanation;
 }
-	
+
 Step::Step(int firstValue, int secondValue, Operation operation, unsigned int number){
 	this->firstValue = firstValue;
 	this->secondValue = secondValue;
@@ -17,28 +17,39 @@ Step::Step(int firstValue, int secondValue, Operation operation, unsigned int nu
 }
 
 string Step::toString(){
+
+	const int length = 15;
+	const int lengthOp = 7;
+	const char filler = ' ';
+	stringstream buffer;
+	buffer << "["<< setfill(' ') << setw(2) << number <<"]"<< setw(3)  << ""  ;
 	if(explanation.empty()){
-		stringstream buffer;
 		switch (op)
 		{
-		case SWAP: buffer << "Tausche \t [" << firstValue << "] mit [" << secondValue << "]"<< endl;
+		case SWAP: buffer << setw(lengthOp) << left << "SWAP" << setfill(filler) << setw(length) << left  << "Tausche"  << "[" << firstValue << "] mit [" << secondValue << "]"<< endl;
 			break;
-		case COMP: buffer << "Vergleiche \t [" << firstValue << "] mit [" << secondValue << "]" << endl;
+		case COMP: buffer << setw(lengthOp) << left << "COMP" << setfill(filler) << setw(length)  << left << "Vergleiche" <<"[" <<firstValue << "] mit [" << secondValue << "]" << endl;
 			break;
-		case MARK: buffer << "Betrachte \t [" << firstValue << "] bis [" << secondValue << "]" << endl;
+		case MARK: buffer << setw(lengthOp) << left << "MARK" << setfill(filler) << setw(length) << left  << "Betrachte" << "[" << firstValue << "] bis [" << secondValue << "]" << endl;
 			break;
-		case PIVOT: buffer << "Setze Pivotelement auf \t [" << firstValue<< "]"  <<endl;
+		case PIVOT: buffer << setw(lengthOp) << left << "PIVOT" <<setfill(filler) << setw(length) << left  << "Setze Pivotelement auf" << "[" << firstValue<< "]"  <<endl;
 			break;
-		case CPY: buffer << "Kopiere \t [" << firstValue << "] ins Hilfsarray nach [" << secondValue << "]" << endl;
+		case CPY: buffer << setw(lengthOp) << left << "CPY" << setfill(filler) << setw(length) << left  << "Kopiere" << "[" << firstValue << "] ins Hilfsarray nach [" << secondValue << "]" << endl;
 			break;
-		case R_CPY: buffer << "Kopiere \t [" << firstValue << "] aus dem Hilfsarray [" << secondValue << "]" << endl;
+		case R_CPY: buffer << setw(lengthOp) << left << "R_CPY" << setfill(filler) << setw(length) << left  << "Kopiere"<<"[" << firstValue << "] aus dem Hilfsarray [" << secondValue << "]" << endl;
 			break;
-		case MIN: buffer << "Setzt\t \t [" << firstValue << "] als kleinstes Element" << endl;
+		case MIN: buffer << setw(lengthOp) << left << "MIN" << setfill(filler) << setw(length) << left  <<"Setzt" << "[" << firstValue << "] als kleinstes Element" << endl;
 			break;
 		default:
 			break;
 		}
 		explanation = buffer.str();
+	}
+	else
+	{
+			stringstream b2;
+			b2 << buffer.str() << explanation;
+			explanation = b2.str();
 	}
 	return this->explanation;
 }
