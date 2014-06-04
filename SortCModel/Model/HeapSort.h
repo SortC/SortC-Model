@@ -8,5 +8,9 @@ public:
 	HeapSort(int numbOfValues);
 	~HeapSort(void);
 	void sort() override;
+
+private:
+	void shiftRight(int low, int high);
+	void heapify(int low);
 };
 

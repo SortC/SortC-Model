@@ -8,6 +8,7 @@
 #include "SelectionSort.h"
 #include "InsertionSort.h"
 #include "BucketSort.h"
+#include "HeapSort.h"
 #include "Step.h"
 #include <iostream>
 #include <ctime>
@@ -80,9 +81,9 @@ void testAlgorithm(Algorithm* algo) {
 	}
 	cout << " |" << endl;
 
-	BucketSort* buck = static_cast <BucketSort*> (algo);
+	//BucketSort* buck = static_cast <BucketSort*> (algo);
 
-	printBuckets(buck->getFilledBuckets(), buck->getNumbOfValues());
+	//printBuckets(buck->getFilledBuckets(), buck->getNumbOfValues());
 
 	cout << "\nEndwerte: \t" ;
 	int *endTupel = algo->getCurrentTuple();
@@ -186,7 +187,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	//testAlgorithm(new SelectionSort(zahlen,ANZWERTE));
 	//testAlgorithm(new InsertionSort(zahlen,ANZWERTE));
 	//testAlgorithm(new BubbleSort(zahlen,ANZWERTE));
-	testAlgorithm(new BucketSort(ANZWERTE));//zahlen,ANZWERTE));
+	//testAlgorithm(new BucketSort(ANZWERTE));//zahlen,ANZWERTE));
+	testAlgorithm(new HeapSort(zahlen, ANZWERTE));
 	getchar();
 	return 0;
 }
